@@ -2,7 +2,7 @@ import { join } from "path";
 import { unlink } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "../../auth/[...nextauth]/route";
+import { OPTIONS } from "../../auth/[...nextauth]/routes";
 
 export async function DELETE(request: NextRequest) {
   const session = await getServerSession(OPTIONS);

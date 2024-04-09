@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { addArticleSchema, TAddArticleSchema } from "@/lib/types";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "../auth/[...nextauth]/route";
+import { OPTIONS } from "../auth/[...nextauth]/routes";
 
 export async function GET(req: NextRequest) {
   const skip = req.nextUrl.searchParams.get("skip") || "0";

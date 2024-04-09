@@ -10,7 +10,7 @@ import Search from "@/components/blog/Search";
 import QueryNotFound from "@/components/blog/QueryNotFound";
 import BlogTile from "@/components/blog/BlogTile";
 import Link from "next/link";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
+import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
 import { getServerSession } from "next-auth/next";
 
 type PageProps = {

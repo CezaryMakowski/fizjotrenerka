@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import RegistrationForm from "@/components/dashboard/RegistrationForm";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "../api/auth/[...nextauth]/route";
+import { OPTIONS } from "../api/auth/[...nextauth]/routes";
 import { redirect } from "next/navigation";
 import curvedLine from "@/public/Login/curved-line.svg";
 

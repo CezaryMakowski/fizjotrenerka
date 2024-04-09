@@ -5,7 +5,7 @@ import curvedLine from "@/public/Login/curved-line.svg";
 import Link from "next/link";
 import MediaLogin from "@/components/dashboard/MediaLogin";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "../api/auth/[...nextauth]/route";
+import { OPTIONS } from "../api/auth/[...nextauth]/routes";
 import { redirect } from "next/navigation";
 
 export default async function Login({

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { OPTIONS } from "../../auth/[...nextauth]/route";
+import { OPTIONS } from "../../auth/[...nextauth]/routes";
 import { getServerSession } from "next-auth/next";
 import { prisma } from "@/lib/prisma";
 import { TEditArticleSchema, editArticleSchema } from "@/lib/types";

@@ -3,7 +3,7 @@ import { writeFile } from "fs/promises";
 import { readdirSync } from "fs";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "../../auth/[...nextauth]/route";
+import { OPTIONS } from "../../auth/[...nextauth]/routes";
 
 export async function POST(
   request: NextRequest,

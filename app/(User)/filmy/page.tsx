@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
+import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Movie from "@/components/account/Movie";

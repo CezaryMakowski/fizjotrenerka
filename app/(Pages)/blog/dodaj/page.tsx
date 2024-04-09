@@ -1,6 +1,6 @@
 import ArticleAddForm from "@/components/blog/ArticleAddForm";
 import styles from "./page.module.css";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
+import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 
