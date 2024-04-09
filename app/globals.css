@@ -43,7 +43,6 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: white;
 }
 
 .page-wrapper {
@@ -55,6 +54,7 @@ main {
   margin-bottom: -30px;
   background-color: var(--background);
   z-index: 5;
+  background-color: white;
 }
 
 h1,
