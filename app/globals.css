@@ -23,13 +23,6 @@
   --blog-slider: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #232323;
-    --text-color: #fff;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -45,17 +38,12 @@ body {
   overflow: visible;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: white;
 }
 
 .page-wrapper {
