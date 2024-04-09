@@ -16,7 +16,7 @@ export default function PatiMotywejszyn() {
       </div>
       <div className={styles.wrapper}>
         <div className={styles.blobWrapper}>
-          <Image src={blobPati} alt="Patimotywejszyn Blob" />
+          <Image priority src={blobPati} alt="Patimotywejszyn Blob" />
           <h3>treningi</h3>
           <h3>masaże</h3>
           <h3>zdrowie</h3>

@@ -46,6 +46,7 @@ export default async function BlogPost({
         />
         <div className={styles.articleImg}>
           <Image
+            priority
             src={article.image}
             width={1000}
             height={750}
