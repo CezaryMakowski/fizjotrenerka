@@ -7,7 +7,7 @@ import facebook from "@/public/facebook-blob.svg";
 import instagram from "@/public/instagram-blob.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 

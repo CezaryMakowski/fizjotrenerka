@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import { Article } from "@/lib/types";
 import { notFound } from "next/navigation";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
+import { OPTIONS } from "@/lib/nextAuth";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import ArticleEditForm from "@/components/blog/ArticleEditForm";

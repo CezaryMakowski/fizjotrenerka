@@ -5,7 +5,7 @@ import pinkUnderline from "@/public/Dashboard/konto-użytkownika-podkreślenie-p
 import pen from "@/public/Dashboard/Konto-użytkownika-pióro.svg";
 import EntranceAnimtion from "@/components/account/EntranceAnimation";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
+import { OPTIONS } from "@/lib/nextAuth";
 import { redirect } from "next/navigation";
 
 export const revalidate = 0;

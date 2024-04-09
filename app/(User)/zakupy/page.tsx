@@ -5,7 +5,7 @@ import underline from "@/public/Dashboard/konto-użytkownika-podkreślenie.svg";
 import EntranceAnimtion from "@/components/account/EntranceAnimation";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
-import { OPTIONS } from "@/app/api/auth/[...nextauth]/routes";
+import { OPTIONS } from "@/lib/nextAuth";
 import { prisma } from "@/lib/prisma";
 import PaymentsRow from "@/components/account/PaymentsRow";
 
