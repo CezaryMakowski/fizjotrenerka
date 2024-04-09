@@ -1,0 +1,48 @@
+.navList {
+  position: fixed;
+  padding: 1rem 2rem;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  background-color: var(--secondary-color);
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  text-align: center;
+  color: white;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 3px #fad1d8, inset -3px -3px 3px #fea9b7;
+  z-index: 99;
+}
+
+.title {
+  color: white;
+  font-size: calc(var(--subtitle-font-size) * 0.9);
+}
+
+.navList ul li {
+  margin-top: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.navList ul li:has(a.active),
+.navList ul li:hover {
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 1rem;
+}
+
+.navList ul li a.active,
+.navList ul li:hover a {
+  color: var(--primary-color);
+}
+
+.navList ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0.3rem;
+  text-decoration: none;
+  color: white;
+}

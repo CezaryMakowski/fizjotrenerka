@@ -1,0 +1,26 @@
+.uploadWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  color: var(--primary-color);
+}
+
+.uploadWrapper img {
+  max-width: 90%;
+  width: 35rem;
+  height: auto;
+}
+
+.deleteThumb {
+  margin-top: 3rem;
+  cursor: pointer;
+  transition: scale 0.1s ease-in-out;
+  margin-inline: auto;
+  display: block;
+}
+
+.deleteThumb:hover {
+  scale: 1.1;
+}

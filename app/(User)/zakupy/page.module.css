@@ -1,0 +1,62 @@
+.main {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.main::-webkit-scrollbar {
+  height: 0.2rem;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 100vw;
+}
+
+.headers {
+  position: relative;
+  font-family: var(--subtitle-font);
+  font-size: var(--subtitle-font-size);
+  color: var(--primary-color);
+}
+
+.headers th {
+  padding-bottom: 2.5rem;
+  padding-inline: 0.5rem;
+  font-weight: 500 !important;
+}
+
+.headers .pink {
+  color: var(--secondary-color);
+}
+
+.headers img {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  bottom: 0.5rem;
+  left: -5%;
+}
+
+.invoice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.invoice button {
+  text-wrap: nowrap;
+}
+
+@media (max-width: 780px) {
+  .tableWrapper {
+    width: fit-content;
+    margin: auto;
+  }
+}

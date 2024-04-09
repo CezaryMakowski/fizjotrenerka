@@ -1,0 +1,25 @@
+.mediaWrapper {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.mediaWrapper:first-of-type {
+  margin-bottom: 1rem;
+}
+
+.mediaWrapper p {
+  padding: 0.2rem 0.75rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.mediaWrapper img {
+  width: 3.5rem;
+  height: auto;
+}

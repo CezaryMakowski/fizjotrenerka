@@ -1,0 +1,110 @@
+.sortSelect {
+  position: relative;
+  background-color: var(--secondary-color);
+  text-align: center;
+  color: white;
+  padding: 0.1rem;
+  border-radius: 20px;
+  transition: scale 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.sortSelect:hover {
+  scale: 1.1;
+}
+
+.sortSelect.sortVisible {
+  cursor: default;
+  scale: 1.1;
+}
+
+.sortSelect h3 {
+  padding: 0.4rem 1rem;
+}
+
+.sortSelect > div {
+  background-color: var(--secondary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  translate: 0 100%;
+  width: 100%;
+  padding: 0.2rem;
+  border-radius: 20px;
+}
+
+.sortSelect p {
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: all 0.1s ease-in-out;
+  margin-top: 0.2rem;
+}
+
+.sortSelect a {
+  text-decoration: none;
+  color: white;
+}
+
+.sortSelect p:hover,
+.sortSelect a.active p {
+  background-color: white;
+  border-radius: 100vw;
+  color: var(--primary-color);
+}
+
+.categoryButton {
+  display: none;
+}
+
+.categoryButton p {
+  font-family: var(--subtitle-font);
+  font-size: calc(0.9 * var(--subtitle-font-size));
+}
+
+.categoryBox {
+  position: fixed;
+  top: 50vh;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: var(--text-font-size);
+  font-family: var(--text-font);
+  text-align: center;
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.categoryBox h3 {
+  color: white;
+}
+
+.categoryBox ul {
+  list-style: none;
+  color: white;
+}
+
+.categoryBox ul a {
+  text-decoration: none;
+  color: white;
+}
+
+.categoryBox li:hover,
+.categoryBox a.active li {
+  background-color: white;
+  border-radius: 100vw;
+  color: var(--primary-color);
+}
+
+.categoryBox li {
+  margin-top: 0.3rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+@media (max-width: 896px) {
+  .categoryButton {
+    display: block;
+  }
+}

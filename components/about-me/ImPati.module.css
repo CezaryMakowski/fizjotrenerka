@@ -1,0 +1,66 @@
+.section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  padding-right: 4rem;
+  padding-left: 2rem;
+}
+
+.pati {
+  align-self: flex-start;
+  position: relative;
+  margin-right: -3rem;
+  top: 4rem;
+  width: clamp(25rem, 45vw, 35rem);
+  height: auto;
+}
+
+.infoWrapper {
+  width: 35rem;
+  text-align: center;
+}
+
+.infoWrapper h1 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.infoWrapper p {
+  margin-top: 0.5rem;
+  color: var(--primary-color);
+}
+
+.curvedLine {
+  min-width: 8rem;
+  width: 15%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    margin-top: 11rem;
+    padding-right: 2rem;
+  }
+
+  .pati {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .section {
+    padding-inline: 1rem;
+  }
+
+  .curvedLine {
+    display: none;
+  }
+}

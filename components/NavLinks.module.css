@@ -1,0 +1,59 @@
+.listItem {
+  position: relative;
+  cursor: pointer;
+  transition: scale 0.1s ease-in;
+}
+
+.listItem:hover {
+  scale: 1.1;
+}
+
+.listItem a {
+  text-decoration: none;
+  color: white;
+}
+
+.listItem:has(a.active) {
+  scale: 1.1;
+}
+
+.listItem a.active svg {
+  stroke-dashoffset: 0;
+}
+
+.listItem:hover .svg {
+  stroke-dashoffset: 0;
+}
+
+.listItem span {
+  font-family: var(--subtitle-font);
+  font-size: calc(var(--subtitle-font-size) * 0.75);
+}
+
+.listItem a {
+  color: white;
+  text-decoration: none;
+}
+
+.svg {
+  position: absolute;
+  bottom: -8px;
+  fill: none;
+  width: 70%;
+  stroke: var(--secondary-color);
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 120px;
+  stroke-dashoffset: 120px;
+  transition: all 0.2s ease-in-out 0.1s;
+}
+
+.left {
+  left: -13%;
+}
+
+.right {
+  right: -13%;
+  transform: scaleX(-1);
+}

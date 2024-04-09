@@ -1,0 +1,168 @@
+.logoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 1rem;
+  display: flex;
+}
+
+.logoWrapper a {
+  display: block;
+  width: clamp(11rem, 30%, 18rem);
+  z-index: 5;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.mediaWrapper a {
+  display: inline;
+}
+
+.facebook,
+.instagram {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+  height: fit-content;
+  width: 4rem;
+  transition: scale 0.1s ease-in-out;
+}
+
+.facebook {
+  margin-left: 3rem;
+}
+
+.facebook:hover,
+.instagram:hover {
+  scale: 1.1;
+}
+
+.profileWrapper {
+  font-family: var(--text-font);
+  color: var(--background);
+  font-size: var(--text-font-size);
+  position: absolute;
+  display: flex;
+  text-decoration: none;
+  gap: 0.5rem;
+  align-items: center;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 2;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImage {
+  width: 4rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 100vw;
+  mask-position: center;
+  mask-size: cover;
+}
+
+.signIn {
+  background-color: var(--primary-color);
+}
+
+.profileInfo {
+  position: relative;
+}
+
+.profileBtn {
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  font-family: var(--text-font);
+  transition: scale 0.1s ease-in-out;
+  font-size: calc(0.9 * var(--text-font-size));
+  cursor: pointer;
+}
+
+.profileBtn:hover {
+  scale: 1.1;
+}
+
+.profileDropdown {
+  position: absolute;
+  background-color: var(--primary-color);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  box-shadow: inset 2px 3px 2px #69a8d7, inset 0 -3px 3px #3c617e,
+    0 0 15px rgba(0, 0, 0, 0.5);
+  width: max-content;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-size: var(--text-font-size);
+}
+
+.profileDropdown ul {
+  list-style: none;
+  font-family: inherit;
+  font-size: calc(0.9 * var(--text-font-size));
+}
+
+.profileDropdown ul a {
+  text-decoration: none;
+  color: white;
+}
+
+.profileDropdown ul li {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 0.5rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.profileDropdown ul li:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.profileDropdown ul li:not(:last-child) {
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .logoWrapper {
+    padding-left: 0;
+    gap: 0.5rem;
+  }
+
+  .mediaWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .facebook,
+  .instagram {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 3rem;
+  }
+
+  .profileWrapper {
+    gap: 0.5rem;
+    top: 0.5rem;
+    right: 1rem;
+  }
+
+  .profileImage {
+    width: 3.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .profileWrapper {
+    flex-direction: column;
+  }
+}

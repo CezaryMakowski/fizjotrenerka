@@ -1,0 +1,58 @@
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.search input {
+  width: 15rem;
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  color: var(--primary-color);
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 0 10px 2px var(--secondary-color);
+  padding-inline: 0.5rem;
+  padding-block: 0.2rem;
+}
+
+.search input:focus {
+  outline: none;
+  box-shadow: 0 0 10px 5px var(--secondary-color);
+}
+
+.eraseInput {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  translate: 0 -50%;
+  aspect-ratio: 1/1;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.eraseInput::after,
+.eraseInput::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background-color: var(--primary-color);
+  border-radius: 100vw;
+}
+
+.eraseInput::after {
+  rotate: 45deg;
+  transform-origin: center;
+}
+
+.eraseInput::before {
+  rotate: -45deg;
+  transform-origin: center;
+}

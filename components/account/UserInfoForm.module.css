@@ -1,0 +1,147 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoWrapper {
+  margin-top: 2rem;
+  width: 90%;
+}
+
+.infoWrapper:last-child {
+  margin-bottom: 2rem;
+}
+
+.nameWrapper {
+  margin: auto;
+  width: 90%;
+  max-width: 90%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.nameWrapper input {
+  appearance: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--subtitle-font-size);
+  font-family: var(--subtitle-font);
+  width: 100%;
+}
+
+.nameWrapper input::placeholder {
+  color: var(--primary-color);
+  opacity: 0.5;
+}
+
+.nameWrapper input:focus-visible {
+  outline: none;
+}
+
+.underline {
+  width: 100%;
+  height: auto;
+}
+
+.newsletterWrapper {
+  margin-top: 3rem;
+  color: var(--primary-color);
+  width: 70%;
+  min-width: 22rem;
+}
+
+.newsletterWrapper h3 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 1rem;
+  gap: 1rem;
+  width: 90%;
+}
+
+.newsletter p {
+  width: 70%;
+}
+
+.newsletter input {
+  position: relative;
+  appearance: none;
+  flex-grow: 0;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 100vw;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.newsletter input::after {
+  position: absolute;
+  left: 0.25rem;
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  border-radius: 100vh;
+  transition: all 0.2s ease-in-out;
+}
+
+.newsletter input:checked {
+  background-color: var(--secondary-color);
+}
+
+.newsletter input:checked::after {
+  left: 2.25rem;
+}
+
+.newsletterWrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.changeWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.changeWrapper img {
+  width: 2.5rem;
+  height: auto;
+}
+
+.changeWrapper button:disabled {
+  opacity: 0.7;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 460px) {
+  .nameWrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nameWrapper input {
+    text-align: center;
+  }
+}

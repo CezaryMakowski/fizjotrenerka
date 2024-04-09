@@ -1,0 +1,29 @@
+.main {
+  flex-grow: 1;
+  flex-direction: row !important;
+  max-width: 100%;
+  align-items: flex-start !important;
+}
+
+.section {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  gap: 2rem;
+  width: 100%;
+}
+
+.noMovies {
+  margin-top: 5rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+@media (max-width: 780px) {
+  .section {
+    padding: 0;
+  }
+
+  .noMovies {
+    margin-top: 2rem;
+  }
+}

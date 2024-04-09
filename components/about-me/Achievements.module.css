@@ -1,0 +1,59 @@
+.section {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -5rem;
+  padding-bottom: 5rem;
+  padding-inline: 1rem;
+}
+
+.medal {
+  width: clamp(20rem, 30vw, 28rem);
+  height: auto;
+  margin: auto;
+}
+
+.section h2 {
+  margin-top: 3rem;
+  color: var(--primary-color);
+}
+
+.section h3 {
+  margin-top: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.section ul {
+  list-style-type: none;
+  margin-top: 0.3rem;
+  line-height: 2.5rem;
+  color: var(--primary-color);
+  font-family: var(--subtitle-font);
+  font-size: calc(var(--subtitle-font-size) * 0.8);
+}
+
+.curvedLine {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  right: 0;
+}
+
+.blob {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  left: 0;
+}
+
+@media only screen and (max-width: 780px) {
+  .blob {
+    display: none;
+  }
+
+  .curvedLine {
+    display: none;
+  }
+}

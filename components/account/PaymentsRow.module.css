@@ -1,0 +1,16 @@
+.title {
+  font-family: var(--subtitle-font);
+  font-size: calc(var(--subtitle-font-size) * 0.9);
+  color: var(--secondary-color);
+}
+
+.content {
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.content:not(:last-child) td {
+  padding-bottom: 2rem;
+}

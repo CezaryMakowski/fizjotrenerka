@@ -1,0 +1,205 @@
+.title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.calendarContainer {
+  width: 90vw;
+  overflow-x: auto;
+}
+
+.calendarContainer::-webkit-scrollbar {
+  height: 0.2rem;
+}
+
+.calendarContainer::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 100vw;
+}
+
+.calendar {
+  width: clamp(50rem, 90vw, 70rem);
+  margin: auto;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: var(--primary-color);
+}
+
+.controls span {
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 2rem;
+  padding: 0 0.75rem;
+}
+
+.arrowLeft,
+.arrowRight {
+  transition: scale 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.arrowLeft:hover {
+  scale: 1.1;
+}
+
+.arrowRight:hover {
+  scale: -1.1 1.1;
+}
+
+.arrowRight {
+  scale: -1 1;
+}
+
+.daysWrapper {
+  width: 100%;
+  display: flex;
+  background-color: var(--primary-color);
+  justify-content: space-around;
+  padding-block: 0.5rem;
+}
+
+.daysWrapper span {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
+  border-radius: 1rem;
+  padding: 0 0.75rem;
+}
+
+.scheduleWrapper {
+  width: 100%;
+  display: flex;
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.scheduleColumn {
+  padding-block: 1rem;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.scheduleColumn:not(:last-child) {
+  border-right: 3px solid white;
+}
+
+.scheduleColumn div {
+  width: 90%;
+  background-color: white;
+  border-radius: 1rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.scheduleColumn div p:first-child {
+  color: var(--secondary-color);
+}
+
+.messageWrapper {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.messageText {
+  position: relative;
+  margin-right: 2rem;
+}
+
+.messageText p {
+  position: relative;
+  font-family: var(--subtitle-font);
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.messageText img {
+  position: absolute;
+  left: -20%;
+  bottom: 0;
+  translate: 0 65%;
+  width: 140%;
+  height: auto;
+}
+
+.messageWrapper input {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  padding: 0.3rem 2rem;
+  border-radius: 2rem;
+  transition: scale 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.messageWrapper input::-webkit-calendar-picker-indicator {
+  filter: invert(94%) sepia(6%) saturate(0%) hue-rotate(43deg) brightness(105%)
+    contrast(108%);
+  scale: 1.5;
+  cursor: pointer;
+}
+
+.messageWrapper input:focus {
+  outline: none;
+  scale: 1.05;
+}
+
+.messageSend {
+  position: relative;
+}
+
+.messageSend img {
+  position: absolute;
+  width: 10rem;
+  height: auto;
+  right: 0;
+  top: 0;
+  translate: 95% -50%;
+}
+
+@media (max-width: 1068px) {
+  .messageSend img {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .messageWrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "text text"
+      "date button";
+  }
+
+  .messageText {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    grid-area: text;
+  }
+
+  .messageSend {
+    grid-area: button;
+  }
+
+  .messageWrapper input {
+    grid-area: date;
+  }
+}

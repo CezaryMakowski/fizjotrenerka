@@ -1,0 +1,84 @@
+.playTrailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.playTrailer img {
+  width: 4rem;
+  height: auto;
+  transition: scale 0.1s ease-in-out;
+}
+
+.playTrailer img:hover {
+  scale: 1.1;
+}
+
+.playTrailer p {
+  font-family: var(--subtitle-font);
+  font-size: calc(0.9 * var(--subtitle-font-size));
+  color: var(--primary-color);
+}
+
+.videoWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  box-shadow: 0 0 20px var(--secondary-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 60%;
+  background-color: white;
+  z-index: 9999;
+}
+
+.video {
+  width: 100%;
+  height: fit-content;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.turnOff {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100vw;
+  box-shadow: 0 0 5px var(--secondary-color);
+  background-color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.turnOff::after,
+.turnOff::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.3rem;
+  background-color: var(--secondary-color);
+  border-radius: 100vw;
+  transform-origin: center;
+}
+
+.turnOff::after {
+  rotate: 45deg;
+}
+
+.turnOff::before {
+  rotate: -45deg;
+}
+
+@media (max-width: 768px) {
+  .videoWrapper {
+    width: 90%;
+  }
+}

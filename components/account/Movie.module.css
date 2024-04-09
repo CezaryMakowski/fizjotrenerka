@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.thumbnailWrapper {
+  z-index: 2;
+  position: relative;
+  min-width: 12rem;
+  width: 12rem;
+  margin-right: -2rem;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.playBtn {
+  width: 30%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.infoWrapper {
+  padding: 1rem 2rem;
+  padding-left: 3rem;
+  box-shadow: 0 0 20px var(--secondary-color);
+  border-radius: 1rem;
+  flex-grow: 1;
+}
+
+.title {
+  color: var(--primary-color);
+}
+
+.duration {
+  color: var(--secondary-color);
+}
+
+.videoWrapper {
+  position: relative;
+  box-shadow: 0 0 20px var(--secondary-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.video {
+  width: 100%;
+  height: fit-content;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.turnOff {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100vw;
+  box-shadow: 0 0 5px var(--secondary-color);
+  background-color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.turnOff::after,
+.turnOff::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.3rem;
+  background-color: var(--secondary-color);
+  border-radius: 100vw;
+  transform-origin: center;
+}
+
+.turnOff::after {
+  rotate: 45deg;
+}
+
+.turnOff::before {
+  rotate: -45deg;
+}
+
+@media (max-width: 475px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .thumbnailWrapper {
+    margin-right: 0;
+  }
+
+  .infoWrapper {
+    width: 75%;
+    text-align: center;
+    padding-left: 2rem;
+  }
+
+  .container:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

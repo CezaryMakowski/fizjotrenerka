@@ -1,0 +1,52 @@
+.title {
+  margin-top: 3rem;
+  color: var(--secondary-color);
+  text-align: center;
+  width: 100%;
+}
+
+.wrapper {
+  background-image: url(/Login/blob-background.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin-bottom: 5rem;
+  padding-block: 4rem;
+  width: clamp(24rem, 30vw, 28rem);
+  aspect-ratio: 8/13;
+}
+
+.mediaWrapper {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+}
+
+.mediaWrapper:first-of-type {
+  margin-bottom: 1rem;
+}
+
+.mediaWrapper p {
+  padding: 0.2rem 0.75rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.mediaWrapper img {
+  width: 3.5rem;
+  height: auto;
+}
+
+.curvedLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% 25%;
+  width: 20%;
+  height: auto;
+}

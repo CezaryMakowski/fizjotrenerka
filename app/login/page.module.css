@@ -1,0 +1,51 @@
+.title {
+  margin-top: 3rem;
+  color: var(--secondary-color);
+  text-align: center;
+  width: 100%;
+}
+
+.wrapper {
+  background-image: url(/Login/blob-background.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin-bottom: 5rem;
+  padding-block: 4rem;
+  width: clamp(24rem, 30vw, 28rem);
+  aspect-ratio: 8/13;
+}
+
+.curvedLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% 25%;
+  width: 20%;
+  height: auto;
+}
+
+.register,
+.passRecovery {
+  color: white;
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.passRecovery {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.register {
+  margin-top: 1rem;
+}
+
+.register:hover,
+.passRecovery:hover {
+  color: var(--secondary-color);
+}

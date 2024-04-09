@@ -1,0 +1,83 @@
+.link {
+  text-decoration: none;
+}
+
+.wrapper {
+  font-size: var(--subtitle-font-size);
+  width: 100%;
+  min-width: 21rem;
+  max-width: 32rem;
+  text-align: center;
+  margin: auto;
+}
+
+.thumb {
+  width: 75%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  height: auto;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.wrapper > h3 {
+  width: 90%;
+  color: var(--primary-color);
+  font-size: calc(var(--subtitle-font-size) * 0.85);
+}
+
+.wrapper div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper div img {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper div p {
+  width: 80%;
+  position: absolute;
+  color: white;
+}
+
+.delete,
+.edit {
+  cursor: pointer;
+  transition: scale 0.1s ease-in-out;
+}
+
+.edit {
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.delete:hover,
+.edit:hover {
+  scale: 1.1;
+}
+
+.deleteWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+}
+
+.deleteWindow div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}

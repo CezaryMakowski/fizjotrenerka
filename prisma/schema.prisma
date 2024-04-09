@@ -1,0 +1,123 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  authorId    String
+  image       String
+  title       String   @unique
+  content     String
+  teaser      String
+  category    String[]
+  createdAt   DateTime @default(now())
+  author      User     @relation(fields: [authorId], references: [id])
+  addedImages String[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+enum UserRole {
+  ADMIN
+  CUSTOMER
+}
+
+model User {
+  id                  String               @id @default(cuid())
+  name                String?
+  surename            String?
+  email               String               @unique
+  image               String               @default("/Header/default-profile-pic.svg")
+  hashedPassword      String?
+  newsletter          Boolean?             @default(false)
+  videos              Video[]
+  accounts            Account[]
+  articles            Article[]
+  orders              Order[]
+  activationToken     VerificationToken?
+  passwordResetTokens PasswordResetToken[]
+  stripeCustomerId    String?              @unique
+  role                UserRole             @default(CUSTOMER)
+  active              Boolean              @default(false)
+}
+
+enum StatusType {
+  PENDING
+  COMPLETED
+}
+
+model Order {
+  id        String     @id @default(cuid())
+  userId    String
+  amount    Float
+  status    StatusType @default(PENDING)
+  createdAt DateTime   @default(now())
+  products  Product[]
+  video     Video?     @relation(fields: [videoId], references: [id])
+  videoId   String?
+  user      User       @relation(fields: [userId], references: [id])
+}
+
+//model w przyszłości będzie wykorzystywany w sklepie
+model Product {
+  id          String  @id @default(cuid())
+  stripeId    String
+  image       String
+  name        String
+  description String
+  amount      Float
+  orders      Order[]
+}
+
+model Video {
+  id               String   @id @default(cuid())
+  stripeId         String
+  image            String
+  name             String
+  description      String
+  pointsOfInterest String[]
+  amount           Float
+  src              String
+  trailerSrc       String?
+  duration         String
+  orders           Order[]
+  users            User[]
+}
+
+model VerificationToken {
+  token       String    @id @unique
+  createdAt   DateTime  @default(now())
+  activatedAt DateTime?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String    @unique
+}
+
+model PasswordResetToken {
+  token       String    @id @unique
+  createdAt   DateTime  @default(now())
+  activatedAt DateTime?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+}

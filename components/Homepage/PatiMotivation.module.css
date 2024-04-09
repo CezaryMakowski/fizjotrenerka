@@ -1,0 +1,144 @@
+.section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 4rem;
+  margin-top: 10rem;
+  padding-inline: 2rem;
+}
+
+.infoWrapper {
+  padding-bottom: 3rem;
+  width: 60%;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  margin-right: -1rem;
+}
+
+.infoWrapper h1 {
+  color: var(--secondary-color);
+  font-weight: 500;
+  line-height: 0.7;
+}
+
+.wrapper {
+  margin-left: -1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+}
+
+.pati {
+  bottom: 5rem;
+  position: relative;
+  width: 110%;
+  height: auto;
+}
+
+.blobWrapper {
+  top: 20%;
+  right: 20%;
+  position: absolute;
+  width: 70%;
+}
+
+.blobWrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.blobWrapper h3 {
+  position: absolute;
+}
+
+.blobWrapper h3:nth-child(2) {
+  top: -1rem;
+  left: -6rem;
+  rotate: 25deg;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+.blobWrapper h3:nth-child(3) {
+  top: -2rem;
+  right: -3rem;
+  rotate: -15deg;
+  font-size: clamp(1.8rem, 3vw, 2.1rem);
+}
+
+.blobWrapper h3:nth-child(4) {
+  bottom: 1rem;
+  left: -7rem;
+  rotate: -15deg;
+  font-size: 2rem;
+}
+
+.mobileArrowWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 1036px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wrapper {
+    margin-top: 2rem;
+    margin-left: 0;
+    width: 90%;
+  }
+
+  .infoWrapper {
+    margin-top: 1rem;
+    width: 85%;
+  }
+
+  .blobWrapper h3:nth-child(4) {
+    left: -6rem;
+  }
+
+  .blobWrapper h3:nth-child(2) {
+    top: -1.5rem;
+    left: -4rem;
+    rotate: 45deg;
+  }
+
+  .blobWrapper h3:nth-child(3) {
+    top: -2rem;
+    right: -2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .pati {
+    bottom: 3rem;
+  }
+
+  .blobWrapper h3:nth-child(2) {
+    top: -2rem;
+    left: -3rem;
+    rotate: 55deg;
+    font-size: 1.5rem;
+  }
+
+  .blobWrapper h3:nth-child(3) {
+    font-size: 1.6rem;
+    rotate: -35deg;
+    top: -2.5rem;
+    right: -3rem;
+  }
+
+  .blobWrapper h3:nth-child(4) {
+    display: none;
+  }
+}

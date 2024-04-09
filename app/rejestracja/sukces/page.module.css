@@ -1,0 +1,64 @@
+.main {
+  padding-inline: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.lottie {
+  max-width: 13rem;
+}
+
+.messageWrapper {
+  position: relative;
+  margin-bottom: 1rem;
+  background-color: var(--secondary-color);
+  padding-inline: 2rem;
+  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  border-radius: 1rem;
+  max-width: 30rem;
+}
+
+.messageWrapper::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+}
+
+.messageWrapper h3 {
+  position: relative;
+}
+
+.messageWrapper p {
+  position: relative;
+  color: white;
+}
+
+.resendWrapper {
+  color: var(--primary-color);
+  padding-right: 1rem;
+  text-align: right;
+  width: 30rem;
+  max-width: 100%;
+}
+
+.resendWrapper button {
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  margin-top: 0.2rem;
+}
+
+.resendWrapper button:disabled {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-inline: 1.5rem;
+  }
+}

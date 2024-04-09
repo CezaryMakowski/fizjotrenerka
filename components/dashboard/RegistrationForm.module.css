@@ -1,0 +1,75 @@
+.form {
+  width: 100%;
+  position: relative;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 1.3rem;
+}
+
+.form label {
+  display: block;
+  text-align: center;
+  font-family: var(--subtitle-font);
+  font-size: calc(0.8 * var(--subtitle-font-size));
+  color: white;
+  margin-bottom: 0.2rem;
+}
+
+.form input {
+  position: relative;
+  display: block;
+  width: 60%;
+  margin: auto;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--text-font);
+  font-size: var(--text-font-size);
+  color: var(--primary-color);
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form button {
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.form button:disabled {
+  background-color: #daa5ae;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 100%;
+  color: red;
+  text-align: center;
+  font-size: calc(0.8 * var(--text-font));
+}
+
+.unknownError {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% calc(100% + 2rem);
+  background-color: red;
+  color: white;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  scale: 0;
+  transition: scale 0.2s ease-in-out;
+}
+
+.unknownError.active {
+  scale: 1;
+}

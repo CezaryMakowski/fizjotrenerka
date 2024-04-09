@@ -1,0 +1,223 @@
+.title {
+  margin-top: 7rem;
+  margin-left: 22vw;
+  color: var(--primary-color);
+  position: relative;
+  text-align: center;
+}
+
+.title h1 {
+  position: relative;
+  z-index: 2;
+}
+
+.title img {
+  width: 110%;
+  height: auto;
+  margin-left: -5%;
+  margin-top: -2rem;
+}
+
+.googleWrapper {
+  position: relative;
+  margin-top: 5rem;
+}
+
+.googleMap {
+  width: 40rem;
+  max-width: 90vw;
+  height: 20rem;
+}
+
+.googleWrapper img {
+  position: absolute;
+}
+
+.googleBlob1 {
+  width: clamp(20rem, 30vw, 25rem);
+  height: auto;
+  top: 0;
+  left: 0;
+  translate: -30% -20%;
+}
+
+.googleBlob2 {
+  width: clamp(15rem, 20vw, 20rem);
+  right: 0;
+  top: 0;
+  translate: 58% -40%;
+}
+
+.googleCurvedLine {
+  width: clamp(18rem, 30vw, 30rem);
+  height: auto;
+  bottom: 0;
+  right: 0;
+  translate: 60% 30%;
+}
+
+.address {
+  color: var(--secondary-color);
+  font-family: var(--subtitle-font);
+  font-size: var(--subtitle-font-size);
+  margin-top: 2rem;
+  text-align: center;
+  padding-inline: 2rem;
+}
+
+.contactWrapper {
+  padding-inline: 2rem;
+  width: 100%;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contactInfo {
+  width: 23rem;
+  min-width: 15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactInfo:nth-child(2n-1) {
+  position: relative;
+  bottom: 4rem;
+}
+
+.contactInfo h3 {
+  color: var(--primary-color) !important;
+}
+
+.contactInfo:nth-child(2) h3 {
+  color: var(--secondary-color) !important;
+}
+
+.contactInfo img {
+  width: 70%;
+  height: auto;
+}
+
+.formContainer {
+  position: relative;
+  margin-bottom: 5rem;
+  margin-top: 10rem;
+  width: 100%;
+  background-color: var(--secondary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.formContainer > div {
+  position: relative;
+  margin-top: -5rem;
+  margin-bottom: -5rem;
+}
+
+.pati {
+  width: clamp(22rem, 40vw, 35rem);
+  height: auto;
+  margin-top: -20rem;
+  margin-bottom: -20rem;
+}
+
+.formContainer h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: calc(var(--title-font-size) * 0.9);
+}
+
+.curvedLineForm {
+  position: absolute;
+  width: clamp(26rem, 50vw, 30rem);
+  height: auto;
+  right: 0;
+  bottom: 0;
+  translate: 0 85%;
+}
+
+@media only screen and (max-width: 920px) {
+  .googleBlob1 {
+    width: 32rem;
+    translate: -10% -15%;
+  }
+
+  .googleBlob2 {
+    display: none;
+  }
+
+  .address {
+    margin-top: 4rem;
+    padding-left: 4rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    margin-left: 0;
+    margin-top: 12rem;
+  }
+
+  .contactWrapper {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+      "phone instagram"
+      "mail mail";
+  }
+
+  .contactInfo {
+    max-width: 18rem;
+    width: 100%;
+  }
+
+  .contactInfo:first-child {
+    grid-area: phone;
+  }
+
+  .contactInfo:last-child {
+    grid-area: instagram;
+  }
+
+  .contactInfo:nth-child(2) {
+    grid-area: mail;
+  }
+
+  .pati {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .contactWrapper {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contactInfo {
+    bottom: 0 !important;
+  }
+
+  .contactInfo:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+  .contactInfo img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 430px) {
+  .formContainer > div {
+    margin-top: -14rem;
+    padding-top: 6rem;
+  }
+}

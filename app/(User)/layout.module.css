@@ -1,0 +1,79 @@
+.mobileBtnContainer {
+  padding-block: 2rem;
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+
+.container {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-inline: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.sideNav {
+  background-image: url(/Dashboard/Konto-użytkownika-blob.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 19/25;
+  min-width: 10em;
+  padding: 0.5em 2em;
+  margin-top: 2rem;
+  font-family: var(--subtitle-font);
+  font-size: var(--subtitle-font-size);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideNav ul {
+  list-style: none;
+}
+
+.sideNav ul li {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.1s ease-in;
+}
+
+.sideNav ul li:has(a.active),
+.sideNav ul li:hover {
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 20px;
+}
+
+.sideNav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0.1em 0.2em;
+  text-decoration: none;
+  color: white;
+}
+
+.sideNav ul li a.active,
+.sideNav ul li:hover a {
+  color: var(--primary-color);
+}
+
+@media (max-width: 780px) {
+  .mobileBtnContainer {
+    display: flex;
+  }
+
+  .container {
+    padding-top: 0;
+  }
+
+  .sideNav {
+    display: none;
+  }
+}

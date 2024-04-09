@@ -1,0 +1,97 @@
+.main {
+  padding-top: 9rem;
+  padding-bottom: 5rem;
+  padding-inline: 2rem;
+  overflow: hidden;
+}
+
+.title {
+  color: var(--secondary-color);
+}
+
+.subTitle {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.subTitle h3 {
+  color: var(--primary-color);
+}
+
+.subTitle img {
+  width: 30rem;
+  max-width: 108vw;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 50%;
+}
+
+.reversed {
+  width: 25rem !important;
+  scale: -1 1;
+}
+
+.infoWrapper {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  color: white;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--secondary-color);
+}
+
+.infoWrapper:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.infoWrapper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--primary-color);
+  top: 0.3rem;
+  left: 0.3rem;
+  z-index: -1;
+}
+
+.infoWrapper.blue {
+  background-color: var(--primary-color);
+}
+
+.infoWrapper.blue::after {
+  background-color: var(--secondary-color);
+}
+
+.pinkBlob {
+  position: absolute;
+  width: 17vw;
+  min-width: 13rem;
+  height: auto;
+  left: 0;
+  top: 15rem;
+}
+
+.blueBlob {
+  position: absolute;
+  width: 17vw;
+  min-width: 13rem;
+  height: auto;
+  right: 0;
+  top: 20rem;
+}
+
+@media (max-width: 850px) {
+  .blueBlob,
+  .pinkBlob {
+    display: none;
+  }
+}

@@ -1,0 +1,73 @@
+.section {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.title {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.wrapper {
+  font-size: var(--subtitle-font-size);
+  text-align: center;
+  max-width: 14em;
+  min-width: 11em;
+  width: 11em;
+  flex-grow: 1;
+  aspect-ratio: 500/620;
+  background-image: url(../../public/Index/kursy-fizjotrenerka-tło.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+  color: white;
+}
+
+.titleBooty,
+.titleBurner,
+.titlePole {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.titleBooty img,
+.titleBurner img,
+.titlePole img {
+  width: 90%;
+  height: auto;
+}
+
+.titleBooty h3,
+.titleBurner h3 {
+  position: absolute;
+  margin-bottom: 2rem;
+}
+
+.titlePole img {
+  transform: scaleY(-1);
+}
+
+.titlePole h3 {
+  position: absolute;
+  width: 70%;
+}
+
+.wrapper p {
+  width: 90%;
+  margin: 1rem auto;
+}

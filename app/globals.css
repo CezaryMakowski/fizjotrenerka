@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atma&family=Carattere&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --title-font: Carattere;
+  --subtitle-font: Akaya Kanadaka;
+  --text-font: Atma;
+
+  --title-font-size: clamp(3.5rem, 5vw, 4.5rem);
+  --subtitle-font-size: clamp(2rem, 2.5vw, 2.3rem);
+  --text-font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+
+  --primary-color: #578cb5;
+  --secondary-color: #ffc0cb;
+  --text-color: #4d4d4d;
+  --background: #fff;
+
+  --blog-slider: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #232323;
+    --text-color: #fff;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: rgb(var(--background));
+  overflow: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.page-wrapper {
+  width: 100%;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  margin-top: -30px;
+  margin-bottom: -30px;
+  background-color: var(--background);
+  z-index: 5;
+}
+
+h1,
+h2 {
+  font-family: var(--title-font);
+  font-size: var(--title-font-size);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: var(--subtitle-font-size);
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+p,
+span {
+  font-size: var(--text-font-size);
+  font-family: var(--text-font);
+}
+
+button {
+  position: relative;
+  font-family: var(--subtitle-font);
+  font-size: calc((var(--subtitle-font-size)) * 0.75);
+  background-color: var(--secondary-color);
+  border-radius: 100vw;
+  color: white;
+  border: none;
+  padding: 0.3em 0.75em;
+  transition: scale 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 1.1;
+}
