@@ -20,6 +20,7 @@
 
 .mediaWrapper a {
   display: inline;
+  width: fit-content;
 }
 
 .facebook,
