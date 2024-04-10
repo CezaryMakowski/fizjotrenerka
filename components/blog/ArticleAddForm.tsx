@@ -95,7 +95,7 @@ export default function ArticleAddForm({ authorId }: { authorId: string }) {
           return { ...prev, addedImages: currentImages };
         });
         try {
-          const res = await fetch("/api/uploadImage", {
+          const res = await fetch("/api/uploadImage?admin=true", {
             method: "DELETE",
             body: jsonURL,
           });

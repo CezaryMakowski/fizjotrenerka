@@ -51,8 +51,8 @@ export default async function Sklep() {
           </div>
           <p className={styles.text}>{products[0].description}</p>
           <ul className={styles.subText}>
-            {products[0].pointsOfInterest.map((point) => (
-              <li>{point}</li>
+            {products[0].pointsOfInterest.map((point, i) => (
+              <li key={i}>{point}</li>
             ))}
           </ul>
           <div className={styles.controlsWrapper}>
@@ -79,8 +79,8 @@ export default async function Sklep() {
           </div>
           <p className={styles.text}>{products[1].description}</p>
           <ul className={styles.subText}>
-            {products[1].pointsOfInterest.map((point) => (
-              <li>{point}</li>
+            {products[1].pointsOfInterest.map((point, i) => (
+              <li key={i}>{point}</li>
             ))}
           </ul>
           <div className={styles.controlsWrapper}>
@@ -121,8 +121,8 @@ export default async function Sklep() {
           </div>
           <p className={styles.text}>{products[2].description}</p>
           <ul className={styles.subText}>
-            {products[2].pointsOfInterest.map((point) => (
-              <li>{point}</li>
+            {products[2].pointsOfInterest.map((point, i) => (
+              <li key={i}>{point}</li>
             ))}
           </ul>
           <div className={styles.controlsWrapper}>

@@ -12,11 +12,9 @@ export default function ThumbnailImageUploader({
   imageUrl: string;
   setImageUrl: (imageUrl: string) => void;
 }) {
-  const [imageExists, setImageExists] = useState(false);
   const isLoaded = imageUrl !== "/Blog/placeholder.svg";
 
   async function uploadHandler({ target }: ChangeEvent<HTMLInputElement>) {
-    setImageExists(false);
     if (!target.files) {
       console.warn("no file was chosen");
       return;
@@ -26,14 +24,10 @@ export default function ThumbnailImageUploader({
     formData.append("file", target.files[0]);
 
     try {
-      const res = await fetch("/api/uploadImage/thumbnails", {
+      const res = await fetch("/api/uploadImage?admin=true", {
         method: "POST",
         body: formData,
       });
-
-      if (res.status === 422) {
-        setImageExists(true);
-      }
 
       if (!res.ok) {
         throw new Error(res.statusText);
@@ -78,11 +72,6 @@ export default function ThumbnailImageUploader({
         className={styles.uploadWrapper}
         style={isLoaded ? { cursor: "default" } : { cursor: "pointer" }}
       >
-        {imageExists && (
-          <span style={{ color: "red" }}>
-            obrazek o tej nazwie już istnieje
-          </span>
-        )}
         <Image
           src={imageUrl}
           alt="przesłany obrazek artykułu"

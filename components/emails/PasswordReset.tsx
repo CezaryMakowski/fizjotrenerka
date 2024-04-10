@@ -7,6 +7,7 @@ import {
   Html,
   Preview,
   Text,
+  Img,
 } from "@react-email/components";
 
 export default function UserVerify({
@@ -22,6 +23,13 @@ export default function UserVerify({
       <Preview>Zapomniałeś/łaś hasła? żaden problem</Preview>
       <Body style={main}>
         <Container style={container}>
+          <Img
+            src="https://utfs.io/f/9f9cf724-1a96-4c2f-9d65-4b4797031879-epzy5u.png"
+            alt="logo"
+            width="200"
+            height="200"
+            style={{ margin: "auto" }}
+          />
           <Heading style={heading}>Cześć, {name} 😄</Heading>
           <Text style={paragraph}>
             Naciśnij przycisk poniżej a przeniesiemy cię do formularza, gdzie
@@ -58,7 +66,6 @@ const heading = {
   lineHeight: "1.3",
   fontWeight: "400",
   color: "#578cb5",
-  padding: "17px 0 0",
 };
 
 const paragraph = {
