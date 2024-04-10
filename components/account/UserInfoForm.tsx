@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import UserImageUploader from "./UserImageUploader";
 import { useSession } from "next-auth/react";
+import success from "@/public/Blog/success.svg";
 
 export default function UserInfoForm() {
   const { data: session, update } = useSession();
@@ -23,6 +24,7 @@ export default function UserInfoForm() {
     reset,
   } = useForm<TUserInfoSchema>({ resolver: zodResolver(UserInfoSchema) });
   const [imageUrl, setImageUrl] = useState(session?.user.image);
+  const [isPatched, setIsPatched] = useState(false);
 
   useEffect(() => {
     setValue("thumbnail", imageUrl || "/Header/default-profile-pic.svg");
@@ -36,6 +38,7 @@ export default function UserInfoForm() {
 
   async function onSubmit(data: TUserInfoSchema) {
     const URL = process.env.NEXT_PUBLIC_NEXTAUTH_URL as string;
+    setIsPatched(false);
     try {
       const res = await fetch(`${URL}/api/userupdate`, {
         method: "PATCH",
@@ -66,6 +69,7 @@ export default function UserInfoForm() {
             };
           }
         });
+        setIsPatched(true);
         update({ ...updateData });
         reset();
       }
@@ -172,8 +176,19 @@ export default function UserInfoForm() {
           <Image src={pinkUnderline} alt="konto-użytkownika-podkreślenie" />
         </div>
         <div style={{ marginTop: "2rem" }} className={styles.changeWrapper}>
-          <Image src={pen} alt="konto-użytkownika-pióro" />
-          <button disabled={isSubmitting}>Zmień</button>
+          <Image
+            className={styles.pen}
+            src={pen}
+            alt="konto-użytkownika-pióro"
+          />
+          <button className={styles.submit} disabled={isSubmitting}>
+            <Image
+              src={success}
+              className={isPatched ? styles.success : ""}
+              alt="artykuł zaktualizowany pomyślnie"
+            />
+            <p>Zmień</p>
+          </button>
         </div>
       </form>
     </>

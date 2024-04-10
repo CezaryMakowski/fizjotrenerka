@@ -119,13 +119,33 @@
   width: 100%;
 }
 
-.changeWrapper img {
+.changeWrapper .pen {
   width: 2.5rem;
   height: auto;
 }
 
-.changeWrapper button:disabled {
-  opacity: 0.7;
+.submit:disabled {
+  opacity: 0.8;
+}
+
+.submit p {
+  position: relative;
+}
+
+.submit img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: -20% -50%;
+  rotate: 180deg;
+  width: auto;
+  height: 80%;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit img.success {
+  translate: calc(100% + 0.2rem) -50%;
+  rotate: 0deg;
 }
 
 .error {
