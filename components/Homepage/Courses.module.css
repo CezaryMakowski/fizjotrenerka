@@ -69,5 +69,6 @@
 
 .wrapper p {
   width: 90%;
-  margin: 1rem auto;
+  margin-block: 1rem;
+  margin-left: 0.8rem;
 }

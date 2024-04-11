@@ -91,6 +91,7 @@
   .wrapper {
     margin-top: -2rem;
     flex-direction: column;
+    padding: 0;
   }
 
   .wrapper div {
@@ -102,7 +103,7 @@
     display: none;
   }
   .wrapper p {
-    padding-inline: 2rem;
+    padding-inline: 1rem;
   }
   .bottom {
     display: none;
