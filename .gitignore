@@ -42,6 +42,3 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
-
-#prisma
-prisma/migrations
