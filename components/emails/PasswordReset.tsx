@@ -37,7 +37,7 @@ export default function UserVerify({
           </Text>
           <Button
             style={button}
-            href={`http://localhost:3000/login/reset-hasla/${token}`}
+            href={`http://fizjotrenerka.eu/login/reset-hasla/${token}`}
           >
             resetuj hasło
           </Button>

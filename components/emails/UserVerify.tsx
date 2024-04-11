@@ -37,7 +37,7 @@ export default function UserVerify({
           </Text>
           <Button
             style={button}
-            href={`http://localhost:3000/api/activate/${token}`}
+            href={`http://fizjotrenerka.eu/api/activate/${token}`}
           >
             Aktywuj konto
           </Button>
