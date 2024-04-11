@@ -134,7 +134,7 @@
     display: none;
   }
 
-  .wrapperPerso p,
+  .wrapperPerso h3,
   .wrapperMassage h3 {
     color: var(--secondary-color);
     padding: 0;
@@ -142,7 +142,7 @@
     width: 100%;
   }
 
-  .wrapperPerso h3,
+  .wrapperPerso p,
   .wrapperMassage p {
     color: var(--primary-color);
     padding: 0;

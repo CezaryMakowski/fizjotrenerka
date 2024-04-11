@@ -17,10 +17,10 @@ export default function AboutMe() {
         src={blobCzapka}
         alt="Fizjotrenerka-blob1"
       />
-      <h2 className={styles.title}>Kim właściwie jestem?</h2>
       <div className={styles.wrapper}>
         <Image src={pati} alt="kilka-słów-o-fizjotrenerka" />
-        <div>
+        <div style={{ position: "relative" }}>
+          <h2 className={styles.title}>Kim jestem?</h2>
           <h3>Fizjoterapeutką i Trenerką</h3>
           <p>
             Jestem pasjonatką ruchu i zdrowego stylu życia. Jako fizjoterapeutka

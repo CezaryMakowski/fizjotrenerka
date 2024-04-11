@@ -40,8 +40,9 @@
   position: absolute;
   rotate: 3deg;
   color: var(--secondary-color);
-  top: 15%;
-  left: 26rem;
+  left: 50%;
+  translate: -50%;
+  top: -10.5rem;
 }
 
 .wrapper {
@@ -80,12 +81,11 @@
   margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: 860px) {
+@media (max-width: 860px) {
   .title {
     color: white;
     width: 100%;
     text-align: center;
-    left: 0;
   }
 
   .wrapper {
@@ -113,8 +113,8 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 485px) {
   .title {
-    top: 10%;
+    top: -7rem;
   }
 }

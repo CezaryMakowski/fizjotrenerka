@@ -80,7 +80,7 @@ model Order {
   user      User       @relation(fields: [userId], references: [id])
 }
 
-//model w przyszłości będzie wykorzystywany w sklepie
+//for future upgrade
 model Product {
   id          String  @id @default(cuid())
   stripeId    String
