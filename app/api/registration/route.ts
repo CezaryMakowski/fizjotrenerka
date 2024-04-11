@@ -82,8 +82,8 @@ export async function POST(req: NextRequest) {
   }
 
   const { error }: any = await resend.emails.send({
-    from: "Fizjotrenerka <onboarding@resend.dev>",
-    to: ["cezary.makowski96@gmail.com"],
+    from: "Fizjotrenerka <rejestracja@fizjotrenerka.eu>",
+    to: [data.email],
     subject: "Aktywacja konta",
     react: UserVerify({ name: data.name, token: token.token }),
   });

@@ -37,8 +37,8 @@ export async function POST(
     );
 
   const { error }: any = await resend.emails.send({
-    from: "Fizjotrenerka <onboarding@resend.dev>",
-    to: ["cezary.makowski96@gmail.com"],
+    from: "Fizjotrenerka <zmiana@fizjotrenerka.eu>",
+    to: [params.email],
     subject: "Reset hasła",
     react: PasswordReset({ name: user.name!, token: token.token }),
   });

@@ -34,8 +34,8 @@ export async function GET(
     );
 
   const { error }: any = await resend.emails.send({
-    from: "Fizjotrenerka <onboarding@resend.dev>",
-    to: ["cezary.makowski96@gmail.com"],
+    from: "Fizjotrenerka <rejestracja@fizjotrenerka.eu>",
+    to: [email],
     subject: "Aktywacja konta",
     react: UserVerify({ name: user.name!, token: user.activationToken.token }),
   });
