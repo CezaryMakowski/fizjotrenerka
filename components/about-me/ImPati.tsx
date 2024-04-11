@@ -7,11 +7,13 @@ export default function ImPati() {
   return (
     <section className={styles.section}>
       <Image
+        priority
         className={styles.curvedLine}
         src={curvedLine}
         alt="różowa-linia"
       />
       <Image
+        priority
         className={styles.pati}
         src={pati}
         alt="Fizjotrenerka-pati-o-mnie"

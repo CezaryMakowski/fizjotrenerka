@@ -21,7 +21,7 @@ export default function PatiMotywejszyn() {
           <h3>masaże</h3>
           <h3>zdrowie</h3>
         </div>
-        <Image className={styles.pati} src={pati} alt="pati-szpagat" />
+        <Image priority className={styles.pati} src={pati} alt="pati-szpagat" />
       </div>
     </section>
   );

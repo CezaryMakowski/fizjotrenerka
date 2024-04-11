@@ -22,8 +22,8 @@ export default function Nav() {
   return (
     <>
       <header className={styles.wrapper}>
-        <Image src={line} alt="różowe-linie" />
-        <Image src={line} alt="różowe-linie" />
+        <Image priority src={line} alt="różowe-linie" />
+        <Image priority src={line} alt="różowe-linie" />
         <div className={styles.navList}>
           <div
             className={styles.hamburgerWrapper}

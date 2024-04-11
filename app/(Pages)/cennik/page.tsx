@@ -7,12 +7,22 @@ import blueBlob from "@/public/prices/blue-blob.svg";
 export default function Cennik() {
   return (
     <main className={styles.main}>
-      <Image className={styles.pinkBlob} src={pinkBlob} alt="różowy blob" />
-      <Image className={styles.blueBlob} src={blueBlob} alt="niebieski blob" />
+      <Image
+        priority
+        className={styles.pinkBlob}
+        src={pinkBlob}
+        alt="różowy blob"
+      />
+      <Image
+        priority
+        className={styles.blueBlob}
+        src={blueBlob}
+        alt="niebieski blob"
+      />
       <h1 className={styles.title}>Cennik</h1>
       <section className={styles.section}>
         <div className={styles.subTitle}>
-          <Image src={heartLine} alt="podkreślenie tekstu" />
+          <Image priority src={heartLine} alt="podkreślenie tekstu" />
           <h3>Treningi Personalne</h3>
         </div>
         <div className={styles.infoWrapper}>

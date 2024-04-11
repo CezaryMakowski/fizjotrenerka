@@ -13,11 +13,9 @@ const center = {
   lng: 14.547546,
 };
 
-export default function Map() {
+export default function Map({ googleKey }: { googleKey: string }) {
   return (
-    <LoadScriptNext
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string}
-    >
+    <LoadScriptNext googleMapsApiKey={googleKey}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16}>
         <MarkerF position={center} />
       </GoogleMap>

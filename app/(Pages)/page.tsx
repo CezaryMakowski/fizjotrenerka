@@ -4,8 +4,15 @@ import AboutMe from "@/components/Homepage/AboutMe";
 import Appointments from "@/components/Homepage/Appointments";
 import Courses from "@/components/Homepage/Courses";
 import InterestingPosts from "@/components/Homepage/InterestingPosts";
+import { Article } from "@/lib/types";
 
-export default function Home() {
+export default async function Home() {
+  const siteURL = process.env.NEXTAUTH_URL;
+  const data = await fetch(
+    `${siteURL}/api/articles?take=6&skip=0&category=wyróżnione`
+  );
+  const { articles }: { articles: Article[] } = await data.json();
+
   return (
     <main style={{ overflow: "hidden" }}>
       <PatiMotivation />
@@ -13,7 +20,7 @@ export default function Home() {
       <AboutMe />
       <Appointments />
       <Courses />
-      <InterestingPosts />
+      <InterestingPosts articles={articles} />
     </main>
   );
 }

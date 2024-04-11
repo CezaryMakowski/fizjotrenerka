@@ -34,7 +34,7 @@ export default function Kontakt() {
           alt="google-blob"
         />
         <div className={styles.googleMap}>
-          <Map />
+          <Map googleKey={process.env.GOOGLE_API_KEY as string} />
         </div>
         <Image
           className={styles.googleCurvedLine}

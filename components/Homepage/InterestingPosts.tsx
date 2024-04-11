@@ -10,26 +10,13 @@ import { EffectCoverflow, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Article } from "@/lib/types";
 
-export default function InterestingPosts() {
-  const [data, setData] = useState<Article[]>();
-  const siteURL = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
-
-  async function getArticles() {
-    const data = await fetch(
-      `${siteURL}/api/articles?take=6&skip=0&category=wyróżnione`
-    );
-    const { articles }: { articles: Article[] } = await data.json();
-
-    setData([...articles]);
-  }
-
-  useEffect(() => {
-    getArticles();
-  }, []);
-
+export default function InterestingPosts({
+  articles,
+}: {
+  articles: Article[];
+}) {
   return (
     <section className={styles.section}>
       <div className={styles.titleWrapper}>
@@ -62,7 +49,7 @@ export default function InterestingPosts() {
             slideShadows: false,
           }}
         >
-          {data?.map((article, index) => {
+          {articles?.map((article, index) => {
             return (
               <SwiperSlide key={index}>
                 <BlogTile

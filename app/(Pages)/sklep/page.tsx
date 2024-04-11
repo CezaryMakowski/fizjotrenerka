@@ -15,11 +15,16 @@ export default async function Sklep() {
   return (
     <main className={styles.main}>
       <section className={styles.title}>
-        <Image src={underline} alt="tytuł-podkreślenie" />
+        <Image priority src={underline} alt="tytuł-podkreślenie" />
         <h1>Moje kursy online</h1>
       </section>
       <section className={styles.topWrapper}>
-        <Image className={styles.pati} src={pati} alt="pati-moje-kursy" />
+        <Image
+          priority
+          className={styles.pati}
+          src={pati}
+          alt="pati-moje-kursy"
+        />
         <div>
           <h3 className={styles.topInfoTitle}>Po co wam te treningi?</h3>
           <p className={styles.topInfo}>
