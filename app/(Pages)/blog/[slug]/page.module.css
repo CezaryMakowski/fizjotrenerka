@@ -50,7 +50,8 @@
   width: 85%;
   padding-inline: 1rem;
   margin-inline: auto;
-  margin-block: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   font-size: calc(var(--title-font-size) * 0.85);
 }
@@ -198,7 +199,7 @@
   scale: -1 1;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .blobLeft,
   .blobRight {
     display: none;
@@ -228,7 +229,8 @@
   }
 
   .articleWrapper {
-    margin-inline: 0.5rem;
+    margin-left: 0.2rem;
+    margin-right: 0.7rem !important;
     padding: 1rem 0.75rem;
   }
 

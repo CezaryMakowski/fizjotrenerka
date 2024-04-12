@@ -2,6 +2,7 @@ import styles from "./Courses.module.css";
 import Image from "next/image";
 import blobBooty from "@/public/Index/kursy-fizjotrenerka-blob-BeautyBooty.svg";
 import blobPole from "@/public/Index/kursy-fizjotrenerka-blob-poleandburner.svg";
+import Link from "next/link";
 
 export default function Courses() {
   return (
@@ -22,7 +23,9 @@ export default function Courses() {
             pomaga osiągnąć pożądane kształty i proporcje. Niezależnie od
             Twojego poziomu zaawansowania
           </p>
-          <button>Czytaj więcej</button>
+          <button>
+            <Link href={"/sklep#BB"}>czytaj więcej</Link>
+          </button>
         </div>
         <div className={styles.wrapper}>
           <div className={styles.titleBurner}>
@@ -38,7 +41,9 @@ export default function Courses() {
             organizmu. Ten program zapewnia szybkie i efektywne spalanie
             kalorii.
           </p>
-          <button>Czytaj więcej</button>
+          <button>
+            <Link href={"/sklep#cardio"}>czytaj więcej</Link>
+          </button>
         </div>
         <div className={styles.wrapper}>
           <div className={styles.titlePole}>
@@ -54,7 +59,9 @@ export default function Courses() {
             rozciągającymi. Program ten rozwija siłę rdzenia, wytrzymałość
             mięśniową i płynność ruchu.
           </p>
-          <button>Czytaj więcej</button>
+          <button>
+            <Link href={"/sklep#poleCon"}>czytaj więcej</Link>
+          </button>
         </div>
       </div>
     </section>

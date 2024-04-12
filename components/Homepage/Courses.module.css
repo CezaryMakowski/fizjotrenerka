@@ -72,3 +72,8 @@
   margin-block: 1rem;
   margin-left: 0.8rem;
 }
+
+.wrapper button a {
+  color: white;
+  text-decoration: none;
+}

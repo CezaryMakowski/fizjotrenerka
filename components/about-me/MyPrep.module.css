@@ -10,6 +10,7 @@
   z-index: 2;
   text-align: center;
   color: var(--primary-color);
+  margin-bottom: 3rem;
 }
 
 .container {
@@ -89,7 +90,7 @@
 
 @media (max-width: 430px) {
   .infoWrapper > img {
-    width: 130%;
+    width: 30rem;
   }
 
   .infoWrapper {

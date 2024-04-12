@@ -37,7 +37,7 @@ export default async function Sklep() {
           </p>
         </div>
       </section>
-      <section className={styles.wrapper}>
+      <section className={styles.wrapper} id="poleCon">
         <Image
           className={styles.thumbnail}
           src={products[0].image}
@@ -72,7 +72,7 @@ export default async function Sklep() {
           </div>
         </div>
       </section>
-      <section className={styles.wrapper}>
+      <section className={styles.wrapper} id="BB">
         <div className={styles.infoWrapper}>
           <div className={styles.productTitleWrapper}>
             <h3>{products[1].name}</h3>
@@ -107,7 +107,7 @@ export default async function Sklep() {
           alt="pati-moje-kursy"
         />
       </section>
-      <section className={styles.wrapper}>
+      <section className={styles.wrapper} id="cardio">
         <Image
           className={styles.thumbnail}
           src={products[2].image}

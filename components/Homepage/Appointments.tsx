@@ -2,6 +2,7 @@ import styles from "./Appointments.module.css";
 import Image from "next/image";
 import icon from "@/public/Index/Umawianie-hantle.svg";
 import underline from "@/public/Index/Umawianie-Fizjotrenerka-podkreślenie-tutył.svg";
+import Link from "next/link";
 
 export default function Appointments() {
   return (
@@ -20,7 +21,7 @@ export default function Appointments() {
             treningowy, profesjonalne wsparcie i motywacja - to wszystko czeka
             na Ciebie. Nie czekaj dłużej, zainwestuj w swoje zdrowie i kondycję
           </p>
-          <button>Zapisz się</button>
+          <Link href={"/kontakt#contactForm"}>Zapisz się</Link>
         </div>
         <div className={styles.wrapperMassage}>
           <h3>Fizjoterapia</h3>
@@ -34,7 +35,7 @@ export default function Appointments() {
             w redukcji bólu, poprawie funkcji ruchowej i przywróceniu pełnej
             sprawności
           </p>
-          <button>Zapisz się</button>
+          <Link href={"/kontakt#contactForm"}>Zapisz się</Link>
         </div>
       </div>
     </section>

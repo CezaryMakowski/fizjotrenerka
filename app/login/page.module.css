@@ -19,7 +19,7 @@
 
 .curvedLine {
   position: absolute;
-  left: 0;
+  left: 0.3rem;
   top: 0;
   translate: -50% 25%;
   width: 20%;

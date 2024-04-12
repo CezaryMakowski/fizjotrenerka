@@ -70,7 +70,7 @@ export default function Kontakt() {
           alt="kontakt-pati-fizjotrenerka"
         />
         <div>
-          <h2>Formularz Kontaktowy</h2>
+          <h2>Kontakt</h2>
           <ContactForm />
         </div>
       </div>

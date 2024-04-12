@@ -10,9 +10,10 @@
 }
 
 .medal {
-  width: clamp(20rem, 30vw, 28rem);
+  width: clamp(16rem, 30vw, 28rem);
   height: auto;
   margin: auto;
+  margin-top: 3rem;
 }
 
 .section h2 {
@@ -30,8 +31,8 @@
   margin-top: 0.3rem;
   line-height: 2.5rem;
   color: var(--primary-color);
-  font-family: var(--subtitle-font);
-  font-size: calc(var(--subtitle-font-size) * 0.8);
+  font-family: var(--text-font);
+  font-size: calc(1.2 * var(--text-font-size));
 }
 
 .curvedLine {
@@ -48,7 +49,7 @@
   left: 0;
 }
 
-@media only screen and (max-width: 780px) {
+@media (max-width: 780px) {
   .blob {
     display: none;
   }

@@ -66,6 +66,7 @@
 @media (max-width: 476px) {
   .container {
     display: block;
+    padding-inline: 0.2rem;
   }
   .container > img {
     display: none;
