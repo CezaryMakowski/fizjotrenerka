@@ -77,7 +77,7 @@ model Order {
   products  Product[]
   video     Video?     @relation(fields: [videoId], references: [id])
   videoId   String?
-  user      User       @relation(fields: [userId], references: [id])
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 //for future upgrade
