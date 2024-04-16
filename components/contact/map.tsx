@@ -9,8 +9,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 53.416017,
-  lng: 14.547546,
+  lat: 53.45059431422177,
+  lng: 14.547556016770134,
 };
 
 export default function Map({ googleKey }: { googleKey: string }) {

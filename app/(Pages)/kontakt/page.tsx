@@ -42,7 +42,7 @@ export default function Kontakt() {
           alt="linia-google"
         />
       </div>
-      <p className={styles.address}>Krzysztofa Kolumba 5, 70-035 Szczecin</p>
+      <p className={styles.address}>Mariana Rapackiego 3, 71-467 Szczecin</p>
       <div className={styles.contactWrapper}>
         <div className={styles.contactInfo}>
           <Image src={phoneBlob} alt="kontakt-telefon-blob" />
