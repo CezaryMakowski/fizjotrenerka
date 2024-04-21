@@ -1,14 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { prisma } from "@/lib/prisma";
-
-//images
 import underline from "@/public/shop/sklep-podkreślenie.svg";
 import pati from "@/public/shop/Pati-sklep.png";
 import lineBB2 from "@/public/shop/curvedline-beautybooty-2.svg";
 import lineBurner from "@/public/shop/curvedline-fatburner.svg";
 import BuyBtn from "@/components/shop/BuyBtn";
 import Trailer from "@/components/shop/Trailer";
+import programTrailer from "@/videos/Trailer.mp4";
 
 export default async function Sklep() {
   const products = await prisma.video.findMany();
@@ -61,7 +60,7 @@ export default async function Sklep() {
             ))}
           </ul>
           <div className={styles.controlsWrapper}>
-            <Trailer src="kookkok" />
+            <Trailer src={programTrailer} />
             <BuyBtn
               blue
               video
@@ -89,7 +88,7 @@ export default async function Sklep() {
             ))}
           </ul>
           <div className={styles.controlsWrapper}>
-            <Trailer src="kokook" />
+            <Trailer src={programTrailer} />
             <BuyBtn
               blue
               video
@@ -131,7 +130,7 @@ export default async function Sklep() {
             ))}
           </ul>
           <div className={styles.controlsWrapper}>
-            <Trailer src="okkook" />
+            <Trailer src={programTrailer} />
             <BuyBtn
               blue
               video

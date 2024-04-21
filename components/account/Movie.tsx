@@ -17,9 +17,8 @@ type Params = {
 export default function Movie({ imageSrc, title, duration, src }: Params) {
   const [videoVisible, setVideoVisible] = useState(false);
   let video;
-  if (src === "@/videos/Mentzen.mp4") {
-    video = require("@/videos/Mentzen.mp4").default;
-  }
+
+  video = require(src).default;
 
   return (
     <div className={styles.container}>

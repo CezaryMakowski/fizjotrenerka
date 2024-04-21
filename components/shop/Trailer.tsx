@@ -6,8 +6,9 @@ import playBtn from "@/public/shop/playBtn.svg";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import VideoPlayer from "next-video";
+import { Asset } from "next-video/dist/assets";
 
-export default function Trailer({ src }: { src: string }) {
+export default function Trailer({ src }: { src: Asset }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
