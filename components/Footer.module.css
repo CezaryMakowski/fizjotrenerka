@@ -114,6 +114,15 @@
   height: auto;
 }
 
+.infoItem:last-child a {
+  text-decoration: none;
+  color: white;
+}
+
+.infoItem:last-child a:hover {
+  color: var(--secondary-color);
+}
+
 .left,
 .right {
   position: absolute;

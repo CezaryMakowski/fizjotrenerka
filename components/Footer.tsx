@@ -65,6 +65,9 @@ export default function Footer() {
           <Image src={pinPoint} alt="" />
           <a>Krzysztofa Kolumba 5, 70-035 Szczecin</a>
         </div>
+        <div className={styles.infoItem}>
+          <Link href={"/polityka-prywatnosci"}>Polityka Prywatności</Link>
+        </div>
       </div>
     </footer>
   );
