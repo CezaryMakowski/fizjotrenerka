@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import styles from "./ContactForm.module.css";
 import { TContactFormSchema, contactFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -40,9 +40,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.wrapper}>
           <div>
-            <label onClick={() => setIsSuccess(!isSuccess)} htmlFor="name">
-              Imię:
-            </label>
+            <label htmlFor="name">Imię:</label>
             <input {...register("name")} id="name" />
             {errors.name && (
               <p style={{ color: "red" }}>{errors.name.message}</p>

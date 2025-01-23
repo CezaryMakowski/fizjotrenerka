@@ -57,9 +57,9 @@
 }
 
 .articleWrapper {
-  text-align: center;
+  text-align: left;
   position: relative;
-  padding: 2rem 1.5rem;
+  padding: 2rem 2rem;
   margin-inline: 2rem;
   border-radius: 3rem;
   background-color: var(--primary-color);
@@ -73,7 +73,7 @@
   border-radius: 0.75rem;
   background-color: var(--secondary-color);
   width: fit-content;
-  margin: auto;
+  margin-right: auto;
 }
 
 .articleWrapper tr:not(:last-child) {
@@ -103,7 +103,7 @@
 .articleWrapper ul,
 .articleWrapper ol {
   width: fit-content;
-  margin: auto;
+  margin-right: auto;
   margin-top: 1rem;
   text-align: left;
   font-family: var(--text-font);
