@@ -59,7 +59,9 @@ export default function Success() {
         transition={transition}
         className={styles.lottie}
       >
-        <Player loop autoplay src={notActive} />
+        {typeof window !== "undefined" && (
+          <Player loop autoplay src={notActive} />
+        )}
       </motion.div>
       <motion.div
         variants={animation}

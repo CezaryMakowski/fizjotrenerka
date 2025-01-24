@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
   let user = await prisma.user.findFirst({
     where: {
       id: session.user.id,
-      orders: { some: { videoId: data.productId } },
+      videos: { some: { stripeId: data.productId } },
     },
   });
 
