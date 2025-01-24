@@ -21,9 +21,9 @@ export default function Movie({ imageSrc, title, duration, src }: Params) {
   const source = src.split("/")[src.split("/").length - 1];
 
   useEffect(() => {
-    const videoPath: Asset = require(`@/videos/${source}`).default;
-    console.log(videoPath);
-    setVideoSrc(videoPath);
+    import(`@/videos/${source}`)
+      .then((res) => setVideoSrc(res.default))
+      .catch((err) => console.error(err));
   }, [src]);
 
   return (
