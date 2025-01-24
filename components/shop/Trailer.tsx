@@ -8,8 +8,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import VideoPlayer from "next-video";
 import { Asset } from "next-video/dist/assets";
 
-export default function Trailer({ src }: { src: Asset }) {
+export default function Trailer({ src }: { src: string }) {
   const [visible, setVisible] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<Asset>();
+  const source = src.split("/")[src.split("/").length - 1];
+
+  useEffect(() => {
+    import(`@/videos/${source}`)
+      .then((res) => setVideoSrc(res.default))
+      .catch((err) => console.error(err));
+  }, [src]);
 
   useEffect(() => {
     function switchOff() {
@@ -48,7 +56,7 @@ export default function Trailer({ src }: { src: Asset }) {
               className={styles.turnOff}
             ></div>
             <div className={styles.video}>
-              <VideoPlayer src={src} accentColor="#578cb5" />
+              <VideoPlayer src={videoSrc} accentColor="#578cb5" />
             </div>
           </motion.div>
         )}
