@@ -14,8 +14,9 @@ export async function POST(req: NextRequest) {
   }
 
   const { error }: any = await resend.emails.send({
-    from: `${data.email} <onboarding@resend.dev>`,
+    from: `${data.email} <kontakt@fizjotrenerka.eu>`,
     to: ["hempcapone@gmail.com"],
+    reply_to: data.email,
     subject: `masz nową wiadomość od ${data.name}`,
     text: data.message,
   });
