@@ -7,11 +7,6 @@ import InterestingPosts from "@/components/Homepage/InterestingPosts";
 import { Article } from "@/lib/types";
 export default async function Home() {
   const siteURL = process.env.NEXTAUTH_URL;
-  // const data = await fetch(
-  //   `${siteURL}/api/articles?take=6&skip=0&category=wyróżnione`,
-  //   { cache: "no-cache" }
-  // );
-  // const { articles }: { articles: Article[] } = await data.json();
   let articles: Article[] = [];
 
   try {
@@ -31,7 +26,7 @@ export default async function Home() {
   }
 
   return (
-    <main style={{ overflow: "hidden" }}>
+    <main style={{ overflow: "hidden", maxWidth: "1900px", margin: "0 auto" }}>
       <PatiMotivation />
       <PointsOfInterest />
       <AboutMe />

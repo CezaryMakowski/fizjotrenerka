@@ -9,6 +9,8 @@
 }
 
 .blogContainer {
+  max-width: 82rem;
+  margin: auto;
   position: relative;
   flex-grow: 1;
   overflow: hidden;

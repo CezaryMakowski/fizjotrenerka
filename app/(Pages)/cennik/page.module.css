@@ -73,8 +73,7 @@
 
 .pinkBlob {
   position: absolute;
-  width: 17vw;
-  min-width: 13rem;
+  width: clamp(12rem, 17vw, 20rem);
   height: auto;
   left: 0;
   top: 15rem;
@@ -82,11 +81,10 @@
 
 .blueBlob {
   position: absolute;
-  width: 17vw;
-  min-width: 13rem;
+  width: clamp(13rem, 17vw, 18rem);
   height: auto;
   right: 0;
-  top: 20rem;
+  top: 14rem;
 }
 
 @media (max-width: 850px) {
