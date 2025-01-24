@@ -3,9 +3,10 @@
 import Image from "next/image";
 import styles from "./Movie.module.css";
 import playBtn from "@/public/Dashboard/playBtn.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import VideoPlayer from "next-video";
+import { Asset } from "next-video/dist/assets";
 
 type Params = {
   imageSrc: string;
@@ -16,9 +17,14 @@ type Params = {
 
 export default function Movie({ imageSrc, title, duration, src }: Params) {
   const [videoVisible, setVideoVisible] = useState(false);
-  let video;
+  const [videoSrc, setVideoSrc] = useState<Asset>();
+  const source = src.split("/")[src.split("/").length - 1];
 
-  video = require(src).default;
+  useEffect(() => {
+    const videoPath: Asset = require(`@/videos/${source}`).default;
+    console.log(videoPath);
+    setVideoSrc(videoPath);
+  }, [src]);
 
   return (
     <div className={styles.container}>
@@ -67,7 +73,7 @@ export default function Movie({ imageSrc, title, duration, src }: Params) {
             className={styles.turnOff}
           ></div>
           <div className={styles.video}>
-            <VideoPlayer src={video} accentColor="#578cb5" />
+            <VideoPlayer src={videoSrc} accentColor="#578cb5" />
           </div>
         </motion.div>
       )}

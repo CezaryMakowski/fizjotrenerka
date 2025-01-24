@@ -11,6 +11,7 @@ import programTrailer from "@/videos/Trailer.mp4";
 
 export default async function Sklep() {
   const products = await prisma.video.findMany();
+
   return (
     <main className={styles.main}>
       <section className={styles.title}>
