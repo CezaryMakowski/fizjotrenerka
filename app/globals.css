@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atma&family=Carattere&display=swap");
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -7,10 +5,6 @@
 }
 
 :root {
-  --title-font: Carattere;
-  --subtitle-font: Akaya Kanadaka;
-  --text-font: Atma;
-
   --title-font-size: clamp(3.5rem, 5vw, 4.5rem);
   --subtitle-font-size: clamp(2rem, 2.5vw, 2.3rem);
   --text-font-size: clamp(1.2rem, 1.5vw, 1.4rem);

@@ -101,6 +101,7 @@
   color: white;
   width: 90%;
   margin: auto;
+  padding-bottom: 1rem;
 }
 
 @media (max-width: 1050px) {

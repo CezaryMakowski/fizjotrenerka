@@ -9,9 +9,9 @@ export default function PatiMotywejszyn() {
       <div className={styles.infoWrapper}>
         <h1>Trenerka inaczej</h1>
         <p>
-          Odkryj swoją najlepszą wersję podczas treningu ze mną - osiągnij cele
-          fitnessu szybciej, skuteczniej i z przyjemnością. Daj sobie szansę na
-          transformację już dziś!
+          Osiągnij cele fitnessu szybciej, skuteczniej i z przyjemnością. Nie
+          ważne ile masz lat, czy jesteś kobietą czy mężczyzną, czy masz
+          przeszłość sportową. Daj sobie szansę na transformację już dziś!
         </p>
       </div>
       <div className={styles.wrapper}>

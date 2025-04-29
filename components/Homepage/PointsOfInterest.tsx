@@ -9,34 +9,27 @@ export default function CiekawostkaZdrowie() {
     <section className={styles.section}>
       <div className={styles.wrapper}>
         <Image src={blobHeart} alt="Sport-to-zdrowie" />
-        <h3>Trenuj zdrowie</h3>
+        <h3>Fizjoterapia</h3>
         <p>
-          Trening to klucz do zdrowia i kondycji! Regularne ćwiczenia zwiększają
-          siłę mięśniową, poprawiają wydolność organizmu oraz wzmacniają kości.
-          Dodatkowo, trening siłowy przyspiesza metabolizm, pomaga w utracie
-          wagi i redukcji tkanki tłuszczowej
+          Fizjoterapia czyli powrót do sprawności fizycznej poprzez terapię
+          manualną i kinezyterapię, czyli terapię ruchem.
         </p>
       </div>
       <div className={styles.wrapper}>
         <Image src={blobMassage} alt="masaże-Fizjotrenerka" />
         <h3>Masaż</h3>
         <p>
-          Masaż to nie tylko luksusowa przyjemność, to także klucz do zdrowia i
-          dobrej kondycji. Redukuje stres, łagodzi napięcie mięśniowe, poprawia
-          krążenie krwi oraz elastyczność skóry. Ciesz się relaksem i
-          odprężeniem, jednocześnie dbając o swoje zdrowie dzięki regularnym
-          sesjom masażu
+          Masaż klasyczny lub relaksacyjny może być doskonałą formą
+          uzupełniającą Twoją regenerację lub po prostu chwilą relaksu.
         </p>
       </div>
       <div className={styles.wrapper}>
         <Image src={blobDeadPress} alt="Trening-to-życie" />
-        <h3>Przyjemne treningi</h3>
+        <h3>Treningi</h3>
         <p>
-          Trenowanie to nie tylko wysiłek fizyczny, to również źródło niezwykłej
-          przyjemności i satysfakcji. Każdy krok, każdy wysiłek przynosi
-          poczucie osiągnięcia i wzmacnia naszą pewność siebie. Odkrywaj radość
-          w pokonywaniu własnych granic i buduj swoje ciało oraz umysł, czerpiąc
-          z tego niezapomniane doznania każdego dnia
+          Trening z wykorzystaniem własnej masy ciała lub trening siłowy to
+          jedna z wielu form aktywności fizycznej, która wspomaga utrzymanie
+          zdrowia i kondycji.
         </p>
       </div>
     </section>

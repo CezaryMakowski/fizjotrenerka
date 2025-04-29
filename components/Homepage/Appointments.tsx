@@ -16,21 +16,15 @@ export default function Appointments() {
           <Image src={icon} alt="fizjotrenerka-umawianie-hantle" />
           <h3>Trening personalny</h3>
           <p>
-            Gotowy na transformację? Zapisz się na trening personalny już dziś i
-            odkryj swoje pełne potencjału! Indywidualnie dopasowany program
-            treningowy, profesjonalne wsparcie i motywacja - to wszystko czeka
-            na Ciebie. Nie czekaj dłużej, zainwestuj w swoje zdrowie i kondycję
+            Treningi stacjonarne odbywają się w Centrum Treningu Personalnego
+            Mateusz Andrzejak przy Rapackiego 3 w Szczecinie w formie 1:1 lub
+            1:2 (indywidualnie lub w parze).
           </p>
           <Link href={"/kontakt#contactForm"}>Zapisz się</Link>
         </div>
         <div className={styles.wrapperMassage}>
           <h3>Fizjoterapia</h3>
-          <p style={{ marginTop: "1rem", paddingInline: "1em" }}>
-            Czy cierpisz na ból mięśni czy stawów? Czy potrzebujesz pomocy w
-            rehabilitacji po urazie? Zapisz się na wizytę fizjoterapeutyczną i
-            odzyskaj kontrolę nad swoim ciałem.
-          </p>
-          <p style={{ marginBottom: "1rem" }}>
+          <p style={{ marginTop: "1rem", paddingInline: "1.5em" }}>
             Dzięki indywidualnemu podejściu i specjalistycznej wiedzy, pomogę Ci
             w redukcji bólu, poprawie funkcji ruchowej i przywróceniu pełnej
             sprawności

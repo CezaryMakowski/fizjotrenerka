@@ -18,10 +18,9 @@ export default function Courses() {
             <h3>BeautyBooty</h3>
           </div>
           <p>
-            Oto intensywny program treningowy zaprojektowany specjalnie dla
-            tych, którzy pragną wzmocnić i powiększyć pośladki. Mój trening
-            pomaga osiągnąć pożądane kształty i proporcje. Niezależnie od
-            Twojego poziomu zaawansowania
+            Zestaw stworzony z myślą o kobietach, które marzą o pośladkach
+            niczym J.Lo bez skalpela. Jest to zbiór ćwiczeń, które pomogą
+            uzyskać wymarzone kształtne pośladki.
           </p>
           <button>
             <Link href={"/sklep#BB"}>czytaj więcej</Link>
@@ -36,10 +35,9 @@ export default function Courses() {
             <h3>Cardio FatBurner</h3>
           </div>
           <p>
-            Cardio Fatburner to intensywny program treningowy, który skupia się
-            na spalaniu tkanki tłuszczowej i poprawy ogólnej wydolności
-            organizmu. Ten program zapewnia szybkie i efektywne spalanie
-            kalorii.
+            Cardio w innej formie niż bieganie czy rowerek stacjonarny. Jeśli
+            lubisz się spocić, polepszyć swoją wydolność to na pewno polubisz
+            się z tym programem.
           </p>
           <button>
             <Link href={"/sklep#cardio"}>czytaj więcej</Link>
@@ -54,10 +52,9 @@ export default function Courses() {
             <h3>PoleDance Conditioning</h3>
           </div>
           <p>
-            Pole Dance Conditioning to innowacyjny program treningowy, który
-            integruje elementy tańca na rurze z technikami wzmacniającymi i
-            rozciągającymi. Program ten rozwija siłę rdzenia, wytrzymałość
-            mięśniową i płynność ruchu.
+            Wzmocnij się pod rurkę! Trening skierowany do osób trenujących
+            akrobatykę na drążku pionowym, czyli pole dance i chcą w bezpieczny
+            sposób zwiększać swoje możliwości treningowe.
           </p>
           <button>
             <Link href={"/sklep#poleCon"}>czytaj więcej</Link>

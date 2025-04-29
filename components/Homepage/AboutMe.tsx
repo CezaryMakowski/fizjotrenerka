@@ -23,11 +23,10 @@ export default function AboutMe() {
           <h2 className={styles.title}>Kim jestem?</h2>
           <h3>Fizjoterapeutką i Trenerką</h3>
           <p>
-            Jestem pasjonatką ruchu i zdrowego stylu życia. Jako fizjoterapeutka
-            i trenerka personalna, moja praca polega na wspieraniu ludzi w
-            osiąganiu ich celów fitnessowych i zdrowotnych. Moje doświadczenie w
-            dziedzinie rehabilitacji oraz treningu sprawia, że mogę dostosować
-            programy indywidualnie, zapewniając optymalne wsparcie dla każdego
+            Jestem studentką fizjoterapii na Wyższej Szkole Edukacji i Terapii w
+            Szczecinie. Treningi prowadzę w Centrum Treningu Personalnego
+            Mateusz Andrzejak przy Rapackiego 3 w Szczecinie. Od dziecka jestem
+            związana ze sportem i sztuką taneczną.
           </p>
           <Link href={"/o-mnie"}>
             <button>Czytaj Więcej</button>

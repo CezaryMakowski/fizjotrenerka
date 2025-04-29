@@ -2,6 +2,25 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SessionContext from "@/components/SessionContext";
+import { Akaya_Kanadaka, Atma, Carattere } from "next/font/google";
+
+const akaya = Akaya_Kanadaka({
+  variable: "--subtitle-font",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const atma = Atma({
+  variable: "--text-font",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const carattere = Carattere({
+  variable: "--title-font",
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Siłownia, treningi, masaże",
@@ -15,7 +34,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={`${akaya.variable} ${atma.variable} ${carattere.variable}`}
+      >
         <Nav />
         <SessionContext>
           <div className="page-wrapper">{children}</div>

@@ -10,7 +10,7 @@ export default function MediaLogin() {
   return (
     <>
       <div
-        onClick={() => signIn("google", { callbackUrl: "/konto" })}
+        onClick={() => signIn("google", { redirectTo: "/konto" })}
         className={styles.mediaWrapper}
       >
         <Image src={google} alt="ikona-google" />
