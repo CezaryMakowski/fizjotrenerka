@@ -7,8 +7,9 @@ const resend = new Resend(process.env.RESEND_SECRET);
 
 export async function GET(
   req: NextRequest,
-  { params: { email } }: { params: { email: string } }
+  { params }: { params: Promise<{ email: string }> },
 ) {
+  const { email } = await params;
   const user = await prisma.user.findUnique({
     where: { email },
     select: {
@@ -22,7 +23,7 @@ export async function GET(
   if (!user)
     return NextResponse.json(
       { success: false },
-      { status: 500, statusText: "something went wrong" }
+      { status: 500, statusText: "something went wrong" },
     );
   if (!user.activationToken)
     return NextResponse.json(
@@ -30,7 +31,7 @@ export async function GET(
       {
         status: 404,
         statusText: "user has no validation token in the database",
-      }
+      },
     );
 
   const { error }: any = await resend.emails.send({
@@ -42,7 +43,7 @@ export async function GET(
   if (error)
     return NextResponse.json(
       { success: false },
-      { status: error.statusCode, statusText: error.message }
+      { status: error.statusCode, statusText: error.message },
     );
 
   return NextResponse.json({ success: true });

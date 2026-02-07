@@ -1,11 +1,16 @@
 "use client";
 
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import styles from "./QueryNotFound.module.css";
 import notFoundAnim from "@/public/Blog/not-found-animation.json";
 import { motion } from "framer-motion";
 
-export default function () {
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
+
+export default function QueryNotFound() {
   return (
     <div className={styles.notFoundWrapper}>
       <motion.div

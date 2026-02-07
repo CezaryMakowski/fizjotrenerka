@@ -5,9 +5,10 @@ import { prisma } from "@/lib/prisma";
 import Stripe from "stripe";
 import { compare } from "bcrypt";
 import { AuthOptions } from "next-auth";
+import type { PrismaClient } from "@prisma/client";
 
 export const OPTIONS: AuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma as unknown as PrismaClient),
   secret: process.env.NEXTAUTH_SECRET as string,
   pages: {
     signIn: "/login",

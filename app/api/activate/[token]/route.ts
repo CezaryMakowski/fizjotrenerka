@@ -7,10 +7,10 @@ export async function GET(
   {
     params,
   }: {
-    params: { token: string };
-  }
+    params: Promise<{ token: string }>;
+  },
 ) {
-  const { token } = params;
+  const { token } = await params;
 
   const user = await prisma.user.findFirst({
     where: {

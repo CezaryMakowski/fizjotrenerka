@@ -3,14 +3,16 @@ import { OPTIONS } from "@/lib/nextAuth";
 import { getServerSession } from "next-auth/next";
 import { prisma } from "@/lib/prisma";
 import { TEditArticleSchema, editArticleSchema } from "@/lib/types";
+import { revalidatePath } from "next/cache";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const article = await prisma.article.findUnique({
     where: {
-      id: params.id,
+      id: id,
     },
     select: {
       id: true,
@@ -27,7 +29,7 @@ export async function GET(
     skip: 1,
     take: -1,
     cursor: {
-      id: params.id,
+      id: id,
     },
     select: {
       title: true,
@@ -42,7 +44,7 @@ export async function GET(
     skip: 1,
     take: 1,
     cursor: {
-      id: params.id,
+      id: id,
     },
     select: {
       title: true,
@@ -60,8 +62,9 @@ export async function GET(
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const session = await getServerSession(OPTIONS);
   if (session?.user.role !== "ADMIN") {
     return new NextResponse(null, { status: 401 });
@@ -82,7 +85,7 @@ export async function PATCH(
   }
 
   const patchedArticle = await prisma.article.update({
-    where: { id: params.id },
+    where: { id: id },
     data: {
       image: result.data.thumbnail,
       title: result.data.title,
@@ -92,20 +95,23 @@ export async function PATCH(
       category: categories,
     },
   });
-
+  revalidatePath("/blog");
+  revalidatePath(`/blog/${id}`);
   return NextResponse.json(patchedArticle, { status: 200 });
 }
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const session = await getServerSession(OPTIONS);
   if (session?.user.role !== "ADMIN") {
     return new NextResponse(null, { status: 401 });
   }
   const deleted = await prisma.article.delete({
-    where: { id: params.id },
+    where: { id: id },
   });
+  revalidatePath("/blog");
   return NextResponse.json(deleted, { status: 200 });
 }

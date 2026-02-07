@@ -6,10 +6,22 @@ import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import ArticleEditForm from "@/components/blog/ArticleEditForm";
 
-export default async function Edit({ params }: { params: { id: string } }) {
+const siteURL = process.env.NEXTAUTH_URL;
+
+export default async function Edit({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const session = await getServerSession(OPTIONS);
   if (session?.user.role !== "ADMIN") redirect("/login");
-  const data = await fetch(`http://localhost:3000/api/articles/${params.id}`);
+  let data;
+  try {
+    data = await fetch(`${siteURL}/api/articles/${(await params).id}`);
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
   const article: Article = await data.json();
 
   if (!article.id) notFound();

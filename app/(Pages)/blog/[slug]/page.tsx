@@ -22,10 +22,11 @@ export const revalidate = 0;
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const siteURL = process.env.NEXTAUTH_URL;
-  const data = await fetch(`${siteURL}/api/articles/${params.slug}`);
+  const { slug } = await params;
+  const data = await fetch(`${siteURL}/api/articles/${slug}`);
 
   const article: Article & NextPrev = await data.json();
 

@@ -9,10 +9,11 @@ import { OPTIONS } from "@/lib/nextAuth";
 import { redirect } from "next/navigation";
 
 export default async function Login({
-  searchParams: { isReset, loginFirst },
+  searchParams,
 }: {
-  searchParams: { isReset: boolean; loginFirst: boolean };
+  searchParams: Promise<{ isReset: boolean; loginFirst: boolean }>;
 }) {
+  const { isReset, loginFirst } = await searchParams;
   const session = await getServerSession(OPTIONS);
   if (session) redirect("/konto");
 

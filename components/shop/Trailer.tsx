@@ -15,7 +15,9 @@ export default function Trailer({ src }: { src: string }) {
 
   useEffect(() => {
     import(`@/videos/${source}`)
-      .then((res) => setVideoSrc(res.default))
+      .then((res) => {
+        setVideoSrc(res.default);
+      })
       .catch((err) => console.error(err));
   }, [src]);
 

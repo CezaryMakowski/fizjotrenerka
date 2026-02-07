@@ -1,10 +1,15 @@
 "use client";
 
 import styles from "./page.module.css";
-import { Player } from "@lottiefiles/react-lottie-player";
 import notActive from "@/public/Login/not-active.json";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false },
+);
 
 const baseURL = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
 
@@ -32,7 +37,7 @@ export default function Success() {
     setIsError(false);
     try {
       const res = await fetch(
-        `${baseURL}/api/sendtokenagain/${email.toLowerCase()}`
+        `${baseURL}/api/sendtokenagain/${email.toLowerCase()}`,
       );
       if (!res.ok) {
         setIsError(true);

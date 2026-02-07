@@ -42,3 +42,7 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
+
+# prisma migrations and generated
+prisma/migrations
+generated

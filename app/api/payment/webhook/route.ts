@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   if (!sig) {
     return NextResponse.json(
       { success: false },
-      { status: 400, statusText: "Stripe signature is missing" }
+      { status: 400, statusText: "Stripe signature is missing" },
     );
   }
 
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       if (!order) {
         return NextResponse.json(
           { success: false },
-          { status: 400, statusText: "no order was found in db" }
+          { status: 400, statusText: "no order was found in db" },
         );
       }
 
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
           {
             status: 400,
             statusText: "something went wrong during order update",
-          }
+          },
         );
       }
 
@@ -71,13 +71,12 @@ export async function POST(req: NextRequest) {
             {
               status: 400,
               statusText: "something went wrong during user update",
-            }
+            },
           );
         }
       }
       break;
     default:
-      console.log(`Unhandled event type ${event.type}`);
   }
   return NextResponse.json({ success: true });
 }

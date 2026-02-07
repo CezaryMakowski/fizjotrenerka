@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   if (!session) {
     return NextResponse.json(
       { success: false, redirect: `login?loginFirst=true` },
-      { status: 401 }
+      { status: 401 },
     );
   }
   let data = await req.json();
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       {
         status: 401,
         statusText: "This video is already in posession of this user",
-      }
+      },
     );
   }
 
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
         {
           status: 400,
           statusText: "something went wrong during Order creation",
-        }
+        },
       );
     }
   } else {
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
       {
         status: 400,
         statusText: "only videos are supported at the moment",
-      }
+      },
     );
   }
 
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
   } catch (error: any) {
     return NextResponse.json(
       { success: false },
-      { status: 400, statusText: `${error.type} ${error.message}` }
+      { status: 400, statusText: `${error.type} ${error.message}` },
     );
   }
 }

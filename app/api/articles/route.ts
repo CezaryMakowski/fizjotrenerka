@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { addArticleSchema, TAddArticleSchema } from "@/lib/types";
 import { getServerSession } from "next-auth/next";
 import { OPTIONS } from "@/lib/nextAuth";
+import { revalidatePath } from "next/cache";
 
 export async function GET(req: NextRequest) {
   const skip = req.nextUrl.searchParams.get("skip") || "0";
@@ -95,6 +96,8 @@ export async function POST(req: NextRequest) {
       category: categories,
     },
   });
+
+  revalidatePath("/blog");
 
   return NextResponse.json(article);
 }

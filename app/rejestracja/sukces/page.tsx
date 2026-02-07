@@ -1,18 +1,24 @@
 "use client";
 
 import styles from "./page.module.css";
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import sending from "@/public/Login/sending.json";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, use } from "react";
 
 const baseURL = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 export default function Success({
   searchParams,
 }: {
-  searchParams: { name: string; email: string };
+  searchParams: Promise<{ name: string; email: string }>;
 }) {
+  const params = use(searchParams);
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const animation = {
@@ -32,7 +38,7 @@ export default function Success({
     setIsError(false);
     try {
       const res = await fetch(
-        `${baseURL}/api/sendtokenagain/${searchParams.email}`
+        `${baseURL}/api/sendtokenagain/${params.email}`
       );
       if (!res.ok) {
         setIsError(true);
@@ -65,7 +71,7 @@ export default function Success({
         transition={transition}
         className={styles.messageWrapper}
       >
-        <h3>Cześć, {searchParams.name}</h3>
+        <h3>Cześć, {params.name}</h3>
         <p>
           Super, Twoje konto jest już prawie aktywne. Właśnie wysłałam ci maila
           zawierającego link aktywacyjny

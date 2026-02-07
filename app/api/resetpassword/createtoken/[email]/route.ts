@@ -8,9 +8,10 @@ const resend = new Resend(process.env.RESEND_SECRET);
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { email: string } }
+  { params }: { params: Promise<{ email: string }> },
 ) {
-  const user = await prisma.user.findUnique({ where: { email: params.email } });
+  const { email } = await params;
+  const user = await prisma.user.findUnique({ where: { email: email } });
 
   if (!user)
     return NextResponse.json(
@@ -18,7 +19,7 @@ export async function POST(
       {
         status: 500,
         statusText: "something went wrong when retrieving user from db",
-      }
+      },
     );
 
   const token = await prisma.passwordResetToken.create({
@@ -33,19 +34,19 @@ export async function POST(
       {
         status: 500,
         statusText: "something went wrong during token creation",
-      }
+      },
     );
 
   const { error }: any = await resend.emails.send({
     from: "Fizjotrenerka <zmiana@fizjotrenerka.eu>",
-    to: [params.email],
+    to: [email],
     subject: "Reset hasła",
     react: PasswordReset({ name: user.name!, token: token.token }),
   });
   if (error)
     return NextResponse.json(
       { success: false },
-      { status: error.statusCode, statusText: error.message }
+      { status: error.statusCode, statusText: error.message },
     );
 
   return NextResponse.json({ success: true });

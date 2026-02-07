@@ -1,14 +1,26 @@
 "use client";
 
 import styles from "./page.module.css";
-import { Player } from "@lottiefiles/react-lottie-player";
 import reset from "@/public/Login/reset.json";
 import { motion } from "framer-motion";
 import PasswordResetForm from "@/components/dashboard/PasswordResetForm";
+import dynamic from "next/dynamic";
+import { use } from "react";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false },
+);
 
 const baseURL = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
 
-export default function ({ params }: { params: { token: string } }) {
+export default function ({
+  searchParams,
+}: {
+  searchParams: Promise<{ token: string }>;
+}) {
+  const params = use(searchParams);
+
   const animation = {
     initial: { y: 50, opacity: 0, scale: 0.7 },
     animate: { y: 0, opacity: 1, scale: 1 },

@@ -1,10 +1,15 @@
 "use client";
 
 import styles from "./page.module.css";
-import { Player } from "@lottiefiles/react-lottie-player";
 import reset from "@/public/Login/reset.json";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false },
+);
 
 const baseURL = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
 
@@ -33,7 +38,7 @@ export default function Success() {
     try {
       const res = await fetch(
         `${baseURL}/api/resetpassword/createtoken/${email.toLowerCase()}`,
-        { method: "POST" }
+        { method: "POST" },
       );
       if (!res.ok) {
         setIsError(true);
