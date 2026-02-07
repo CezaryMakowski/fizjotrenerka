@@ -57,7 +57,7 @@ export default function Nav() {
           sidebarVisible ? styles.visible : undefined
         }`}
       >
-        <NavLinks />
+        <NavLinks setSidebarVisible={setSidebarVisible} />
       </div>
     </>
   );

@@ -1,10 +1,17 @@
 import ActiveLink from "./ActiveLink";
 import styles from "./NavLinks.module.css";
 
-export default function NavLinks() {
+export default function NavLinks({
+  setSidebarVisible,
+}: {
+  setSidebarVisible?: (visible: boolean) => void;
+}) {
   return (
     <>
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}
@@ -25,7 +32,10 @@ export default function NavLinks() {
           <span>Główna</span>
         </ActiveLink>
       </div>
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/o-mnie" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}
@@ -67,7 +77,10 @@ export default function NavLinks() {
           <span>Grafik</span>
         </ActiveLink>
       </div> */}
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/cennik" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}
@@ -88,7 +101,10 @@ export default function NavLinks() {
           <span>Cennik</span>
         </ActiveLink>
       </div>
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/sklep" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}
@@ -109,7 +125,10 @@ export default function NavLinks() {
           <span>Sklep</span>
         </ActiveLink>
       </div>
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/blog" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}
@@ -130,7 +149,10 @@ export default function NavLinks() {
           <span>Blog</span>
         </ActiveLink>
       </div>
-      <div className={styles.listItem}>
+      <div
+        onClick={() => setSidebarVisible && setSidebarVisible(false)}
+        className={styles.listItem}
+      >
         <ActiveLink href="/kontakt" activeClassName={styles.active}>
           <svg
             className={`${styles.svg} ${styles.right}`}

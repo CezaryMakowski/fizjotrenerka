@@ -41,22 +41,22 @@ export default function DashboardNav() {
             Nawigacja
           </motion.h3>
           <ul>
-            <li>
+            <li onClick={() => setNavVisible(false)}>
               <ActiveLink href="/konto" activeClassName={styles.active}>
                 Edytuj Profil
               </ActiveLink>
             </li>
-            <li>
+            <li onClick={() => setNavVisible(false)}>
               <ActiveLink href="/zakupy" activeClassName={styles.active}>
                 Moje Zakupy
               </ActiveLink>
             </li>
-            <li>
+            <li onClick={() => setNavVisible(false)}>
               <ActiveLink href="/filmy" activeClassName={styles.active}>
                 Filmy
               </ActiveLink>
             </li>
-            <li>Wyloguj</li>
+            <li onClick={() => setNavVisible(false)}>Wyloguj</li>
           </ul>
         </motion.div>
       )}

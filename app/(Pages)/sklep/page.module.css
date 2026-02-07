@@ -182,7 +182,7 @@
   }
 
   .wrapper {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 0;
   }
 
