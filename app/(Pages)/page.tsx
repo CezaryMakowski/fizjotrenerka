@@ -12,7 +12,7 @@ export default async function Home() {
   try {
     const data = await fetch(
       `${siteURL}/api/articles?take=6&skip=0&category=wyróżnione`,
-      { cache: "no-cache" }
+      { cache: "no-cache" },
     );
 
     if (!data.ok) {
