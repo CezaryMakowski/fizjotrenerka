@@ -11,6 +11,7 @@ import BlogTile from "@/components/blog/BlogTile";
 import Link from "next/link";
 import { OPTIONS } from "@/lib/nextAuth";
 import { getServerSession } from "next-auth/next";
+import { Suspense } from "react";
 
 type PageProps = {
   searchParams: Promise<{
@@ -138,22 +139,22 @@ export default async function Blog({ searchParams }: PageProps) {
             />
           </div>
           {!articles[0]?.id && <QueryNotFound />}
-          <div className={styles.articlesWrapper}>
-            {articles.map((article, index) => {
-              return (
-                <BlogTile
-                  isAdmin={isAdmin}
-                  id={article.id}
-                  image={article.image}
-                  teaser={article.teaser!}
-                  title={article.title}
-                  whichImage={index % 2}
-                  addedImages={article.addedImages}
-                  key={Math.random()}
-                />
-              );
-            })}
-          </div>
+            <div className={styles.articlesWrapper}>
+              {articles.map((article, index) => {
+                return (
+                  <BlogTile
+                    isAdmin={isAdmin}
+                    id={article.id}
+                    image={article.image}
+                    teaser={article.teaser!}
+                    title={article.title}
+                    whichImage={index % 2}
+                    addedImages={article.addedImages}
+                    key={Math.random()}
+                  />
+                );
+              })}
+            </div>
           {articles[0]?.id && (
             <Pagination
               page={pageNumber}

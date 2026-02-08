@@ -133,6 +133,8 @@ export default function BlogTile({
                   maskImage: `url(${random.mask.src})`,
                 }}
                 className={styles.thumb}
+                placeholder="blur"
+                blurDataURL="/Blog/placeholder.svg"
                 src={image}
                 width={400}
                 height={400}

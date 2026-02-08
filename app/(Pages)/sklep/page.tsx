@@ -23,6 +23,7 @@ export default async function Sklep() {
       <section className={styles.topWrapper}>
         <Image
           priority
+          placeholder="blur"
           className={styles.pati}
           src={pati}
           alt="pati-moje-kursy"

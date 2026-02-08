@@ -15,6 +15,7 @@ export default function ImPati() {
       <Image
         priority
         className={styles.pati}
+        placeholder="blur"
         src={pati}
         alt="Fizjotrenerka-pati-o-mnie"
       />

@@ -48,6 +48,8 @@ export default async function BlogPost({
         <div className={styles.articleImg}>
           <Image
             priority
+            placeholder="blur"
+            blurDataURL="/Blog/placeholder.svg"
             src={article.image}
             width={1000}
             height={750}
