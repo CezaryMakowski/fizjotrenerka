@@ -8,8 +8,39 @@ import { getServerSession } from "next-auth/next";
 import { OPTIONS } from "@/lib/nextAuth";
 import { prisma } from "@/lib/prisma";
 import PaymentsRow from "@/components/account/PaymentsRow";
+import { $Enums } from "@/generated/prisma/wasm";
 
 export const revalidate = 0;
+
+type Order = ({
+  products: {
+    id: string;
+    amount: number;
+    name: string;
+    stripeId: string;
+    image: string;
+    description: string;
+  }[];
+  video: {
+    id: string;
+    amount: number;
+    name: string;
+    stripeId: string;
+    image: string;
+    description: string;
+    pointsOfInterest: string[];
+    src: string;
+    trailerSrc: string | null;
+    duration: string;
+  } | null;
+} & {
+  id: string;
+  userId: string;
+  amount: number;
+  status: $Enums.StatusType;
+  createdAt: Date;
+  videoId: string | null;
+})[];
 
 export default async function Zakupy() {
   const session = await getServerSession(OPTIONS);
@@ -17,17 +48,16 @@ export default async function Zakupy() {
     redirect("/login");
   }
 
-  const user = await prisma.user.findUnique({
-    where: { id: session.user.id },
-    include: {
-      orders: {
-        where: { status: "COMPLETED" },
-        include: { video: true, products: true },
-      },
-    },
-  });
-
-  const orders = user?.orders;
+  let orders: Order = [];
+  try {
+    orders = await prisma.order.findMany({
+      where: { userId: session.user.id, status: "COMPLETED" },
+      include: { video: true, products: true },
+    });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    orders = [];
+  }
   let increment = -1;
 
   return (

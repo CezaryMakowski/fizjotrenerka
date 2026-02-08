@@ -9,14 +9,14 @@ export async function POST(req: NextRequest) {
   if (!result.success) {
     return NextResponse.json(
       { error: result.error },
-      { status: 403, statusText: result.error.issues[0].message }
+      { status: 403, statusText: result.error.issues[0].message },
     );
   }
   const hashedPassword = await bcrypt.hash(result.data.password, 12);
   if (!result.data.token)
     return NextResponse.json(
       { success: false },
-      { status: 403, statusText: "No token submitted" }
+      { status: 403, statusText: "No token submitted" },
     );
 
   const resetToken = await prisma.passwordResetToken.findUnique({
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   if (!resetToken) {
     return NextResponse.json(
       { success: false },
-      { status: 498, statusText: "token expired or invalid" }
+      { status: 498, statusText: "token expired or invalid" },
     );
   }
 
@@ -57,7 +57,10 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     return NextResponse.json(
       { success: false },
-      { status: 500, statusText: "something went wrong during db" }
+      {
+        status: 500,
+        statusText: "something went wrong during database update",
+      },
     );
   }
 

@@ -11,7 +11,6 @@ import BlogTile from "@/components/blog/BlogTile";
 import Link from "next/link";
 import { OPTIONS } from "@/lib/nextAuth";
 import { getServerSession } from "next-auth/next";
-import { Suspense } from "react";
 import EntranceAnimation from "@/components/EntranceAnimation";
 
 type PageProps = {
@@ -38,12 +37,19 @@ export default async function Blog({ searchParams }: PageProps) {
   const searchQuery = params.search ? "&search=" + params.search : "";
 
   if (pageNumber >= 1) {
-    const data = await fetch(
-      `${siteURL}/api/articles?take=${take}&skip=${skip}${
-        categoryQuery + sortQuery + searchQuery
-      }`,
-    );
-    ({ articles, metadata } = await data.json());
+    try {
+      const data = await fetch(
+        `${siteURL}/api/articles?take=${take}&skip=${skip}${
+          categoryQuery + sortQuery + searchQuery
+        }`,
+      );
+      ({ articles, metadata } = await data.json());
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+      articles = [];
+      metadata.hasNextPage = false;
+      metadata.totalPages = 0;
+    }
   } else {
     articles = [];
     metadata.hasNextPage = false;

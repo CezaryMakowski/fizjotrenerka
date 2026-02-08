@@ -40,6 +40,13 @@ export async function GET(req: NextRequest) {
     },
   });
 
+  if (!results) {
+    return NextResponse.json(
+      { articles: [], metadata: { hasNextPage: false, totalPages: 0 } },
+      { status: 500 },
+    );
+  }
+
   const total = await prisma.article.count({
     where: {
       category: category ? { has: category } : undefined,
@@ -51,6 +58,13 @@ export async function GET(req: NextRequest) {
         : undefined,
     },
   });
+
+  if (!total) {
+    return NextResponse.json(
+      { articles: [], metadata: { hasNextPage: false, totalPages: 0 } },
+      { status: 200 },
+    );
+  }
 
   const articles = {
     articles: results,
@@ -96,6 +110,13 @@ export async function POST(req: NextRequest) {
       category: categories,
     },
   });
+
+  if (!article) {
+    return NextResponse.json(
+      { error: "Nie można dodać artykułu" },
+      { status: 500 },
+    );
+  }
 
   revalidatePath("/blog");
 

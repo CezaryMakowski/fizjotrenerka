@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
   if (!file) {
     return NextResponse.json(
       { success: false },
-      { status: 400, statusText: "there is no file to upload" }
+      { status: 400, statusText: "there is no file to upload" },
     );
   }
 
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
   if (response.error) {
     return NextResponse.json(
       { success: false },
-      { status: 400, statusText: response.error.message }
+      { status: 400, statusText: response.error.message },
     );
   }
 
@@ -48,7 +48,14 @@ export async function DELETE(request: NextRequest) {
   const imageURL = await request.json();
   const imageId = imageURL.slice(18);
 
-  await utapi.deleteFiles(imageId);
+  try {
+    await utapi.deleteFiles(imageId);
+  } catch (error) {
+    return NextResponse.json(
+      { success: false },
+      { status: 400, statusText: "Failed to delete image" },
+    );
+  }
 
   return NextResponse.json({ success: true });
 }

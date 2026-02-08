@@ -27,7 +27,13 @@ export default async function BlogPost({
 }) {
   const siteURL = process.env.NEXTAUTH_URL;
   const { slug } = await params;
-  const data = await fetch(`${siteURL}/api/articles/${slug}`);
+  let data;
+  try {
+    data = await fetch(`${siteURL}/api/articles/${slug}`);
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
 
   const article: Article & NextPrev = await data.json();
 

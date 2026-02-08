@@ -7,13 +7,33 @@ import lineBB2 from "@/public/shop/curvedline-beautybooty-2.svg";
 import BuyBtn from "@/components/shop/BuyBtn";
 import Trailer from "@/components/shop/Trailer";
 import EntranceAnimation from "@/components/EntranceAnimation";
+import { notFound } from "next/navigation";
+
+type Product = {
+  id: string;
+  stripeId: string;
+  image: string;
+  name: string;
+  description: string;
+  pointsOfInterest: string[];
+  amount: number;
+  src: string;
+  trailerSrc: string | null;
+  duration: string;
+};
 
 export default async function Sklep() {
-  const products = await prisma.video.findMany({
-    orderBy: {
-      amount: "asc",
-    },
-  });
+  let products: Product[];
+  try {
+    products = await prisma.video.findMany({
+      orderBy: {
+        amount: "asc",
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    notFound();
+  }
 
   return (
     <EntranceAnimation>

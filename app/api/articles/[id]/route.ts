@@ -84,20 +84,27 @@ export async function PATCH(
     return NextResponse.json({ error: result.error }, { status: 403 });
   }
 
-  const patchedArticle = await prisma.article.update({
-    where: { id: id },
-    data: {
-      image: result.data.thumbnail,
-      title: result.data.title,
-      teaser: result.data.teaser,
-      content: result.data.content,
-      addedImages: result.data.addedImages,
-      category: categories,
-    },
-  });
+  try {
+    await prisma.article.update({
+      where: { id: id },
+      data: {
+        image: result.data.thumbnail,
+        title: result.data.title,
+        teaser: result.data.teaser,
+        content: result.data.content,
+        addedImages: result.data.addedImages,
+        category: categories,
+      },
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to update article" },
+      { status: 500 },
+    );
+  }
   revalidatePath("/blog");
   revalidatePath(`/blog/${id}`);
-  return NextResponse.json(patchedArticle, { status: 200 });
+  return NextResponse.json("Article updated successfully", { status: 200 });
 }
 
 export async function DELETE(
@@ -112,6 +119,14 @@ export async function DELETE(
   const deleted = await prisma.article.delete({
     where: { id: id },
   });
+
+  if (!deleted) {
+    return NextResponse.json(
+      { error: "Failed to delete article" },
+      { status: 500 },
+    );
+  }
+
   revalidatePath("/blog");
   return NextResponse.json(deleted, { status: 200 });
 }

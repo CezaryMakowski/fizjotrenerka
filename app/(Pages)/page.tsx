@@ -15,11 +15,6 @@ export default async function Home() {
       `${siteURL}/api/articles?take=6&skip=0&category=wyróżnione`,
       { cache: "no-cache" },
     );
-
-    if (!data.ok) {
-      throw new Error(`Failed to fetch articles: ${data.statusText}`);
-    }
-
     const result = await data.json();
     articles = result.articles;
   } catch (error) {

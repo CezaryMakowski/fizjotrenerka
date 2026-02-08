@@ -7,20 +7,40 @@ import Movie from "@/components/account/Movie";
 
 export const revalidate = 0;
 
+type Video = {
+  id: string;
+  name: string;
+  image: string;
+  src: string;
+  duration: string;
+};
+
 export default async function Filmy({
-  searchParams: { isBought },
+  searchParams,
 }: {
-  searchParams: { isBought: boolean };
+  searchParams: Promise<{ isBought: boolean }>;
 }) {
+  const { isBought } = await searchParams;
   const session = await getServerSession(OPTIONS);
   if (!session) {
     redirect("/login");
   }
-
-  const user = await prisma.user.findUnique({
-    where: { id: session.user.id },
-    include: { videos: true },
-  });
+  let videos: Video[] = [];
+  try {
+    videos = await prisma.video.findMany({
+      where: { users: { some: { id: session.user.id } } },
+      select: {
+        id: true,
+        name: true,
+        image: true,
+        duration: true,
+        src: true,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching videos:", error);
+    videos = [];
+  }
 
   return (
     <main className={styles.main}>
@@ -30,12 +50,12 @@ export default async function Filmy({
             ten film jest już w twoim posiadaniu
           </p>
         )}
-        {!user?.videos[0] && (
+        {!videos[0] && (
           <div className={styles.noMovies}>
             <p>niestety nie posiadasz jeszcze żadnych filmów</p>
           </div>
         )}
-        {user?.videos?.map((video) => (
+        {videos.map((video) => (
           <Movie
             duration={video.duration}
             imageSrc={video.image}
