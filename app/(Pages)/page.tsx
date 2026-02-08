@@ -5,6 +5,7 @@ import Appointments from "@/components/Homepage/Appointments";
 import Courses from "@/components/Homepage/Courses";
 import InterestingPosts from "@/components/Homepage/InterestingPosts";
 import { Article } from "@/lib/types";
+import EntranceAnimation from "@/components/EntranceAnimation";
 export default async function Home() {
   const siteURL = process.env.NEXTAUTH_URL;
   let articles: Article[] = [];
@@ -26,13 +27,17 @@ export default async function Home() {
   }
 
   return (
-    <main style={{ overflow: "hidden", maxWidth: "1900px", margin: "0 auto" }}>
-      <PatiMotivation />
-      <PointsOfInterest />
-      <AboutMe />
-      <Appointments />
-      <Courses />
-      <InterestingPosts articles={articles} />
-    </main>
+    <EntranceAnimation>
+      <main
+        style={{ overflow: "hidden", maxWidth: "1900px", margin: "0 auto" }}
+      >
+        <PatiMotivation />
+        <PointsOfInterest />
+        <AboutMe />
+        <Appointments />
+        <Courses />
+        <InterestingPosts articles={articles} />
+      </main>
+    </EntranceAnimation>
   );
 }

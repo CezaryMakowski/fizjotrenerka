@@ -12,6 +12,7 @@ import Link from "next/link";
 import { OPTIONS } from "@/lib/nextAuth";
 import { getServerSession } from "next-auth/next";
 import { Suspense } from "react";
+import EntranceAnimation from "@/components/EntranceAnimation";
 
 type PageProps = {
   searchParams: Promise<{
@@ -50,95 +51,96 @@ export default async function Blog({ searchParams }: PageProps) {
   }
 
   return (
-    <main>
-      <section className={styles.section}>
-        <div className={styles.categoriesWrapper}>
-          <h3>Kategorie</h3>
-          <ul>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="wszystkie"
-              queryParam={params.category || "wszystkie"}
-            >
-              <li>Wszystkie</li>
-            </ActiveLink>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?category=zdrowie${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="zdrowie"
-              queryParam={params.category}
-            >
-              <li>Zdrowie</li>
-            </ActiveLink>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?category=fizjoterapia${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="fizjoterapia"
-              queryParam={params.category}
-            >
-              <li>Fizjoterapia</li>
-            </ActiveLink>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?category=poledance${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="poledance"
-              queryParam={params.category}
-            >
-              <li>PoleDance</li>
-            </ActiveLink>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?category=uroginekologia${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="uroginekologia"
-              queryParam={params.category}
-            >
-              <li>Uroginekologia</li>
-            </ActiveLink>
-            <ActiveLink
-              scroll={false}
-              href={`/blog?category=kulturystyka${sortQuery + searchQuery}`}
-              activeClassName={styles.active}
-              comparator="kulturystyka"
-              queryParam={params.category}
-            >
-              <li>Kulturystyka</li>
-            </ActiveLink>
-          </ul>
-        </div>
-        <div className={styles.blogContainer}>
-          <div className={styles.title}>
-            <Image src={curvedLine} alt="blog-różowa-linia" />
-            <Link href={"/blog"}>
-              <h1>Blog</h1>
-            </Link>
+    <EntranceAnimation>
+      <main>
+        <section className={styles.section}>
+          <div className={styles.categoriesWrapper}>
+            <h3>Kategorie</h3>
+            <ul>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="wszystkie"
+                queryParam={params.category || "wszystkie"}
+              >
+                <li>Wszystkie</li>
+              </ActiveLink>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?category=zdrowie${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="zdrowie"
+                queryParam={params.category}
+              >
+                <li>Zdrowie</li>
+              </ActiveLink>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?category=fizjoterapia${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="fizjoterapia"
+                queryParam={params.category}
+              >
+                <li>Fizjoterapia</li>
+              </ActiveLink>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?category=poledance${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="poledance"
+                queryParam={params.category}
+              >
+                <li>PoleDance</li>
+              </ActiveLink>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?category=uroginekologia${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="uroginekologia"
+                queryParam={params.category}
+              >
+                <li>Uroginekologia</li>
+              </ActiveLink>
+              <ActiveLink
+                scroll={false}
+                href={`/blog?category=kulturystyka${sortQuery + searchQuery}`}
+                activeClassName={styles.active}
+                comparator="kulturystyka"
+                queryParam={params.category}
+              >
+                <li>Kulturystyka</li>
+              </ActiveLink>
+            </ul>
           </div>
+          <div className={styles.blogContainer}>
+            <div className={styles.title}>
+              <Image src={curvedLine} alt="blog-różowa-linia" />
+              <Link href={"/blog"}>
+                <h1>Blog</h1>
+              </Link>
+            </div>
 
-          <div className={styles.controlsWrapper}>
-            <Search
-              categoryQuery={categoryQuery}
-              sortQuery={sortQuery}
-              search={params.search}
-            />
-            {isAdmin && (
-              <button className={styles.addBtn}>
-                <Link href={"/blog/dodaj"}>Dodaj</Link>
-              </button>
-            )}
-            <CategorySort
-              sort={params.sort}
-              category={params.category}
-              searchQuery={searchQuery}
-              sortQuery={sortQuery}
-              categoryQuery={categoryQuery}
-            />
-          </div>
-          {!articles[0]?.id && <QueryNotFound />}
+            <div className={styles.controlsWrapper}>
+              <Search
+                categoryQuery={categoryQuery}
+                sortQuery={sortQuery}
+                search={params.search}
+              />
+              {isAdmin && (
+                <button className={styles.addBtn}>
+                  <Link href={"/blog/dodaj"}>Dodaj</Link>
+                </button>
+              )}
+              <CategorySort
+                sort={params.sort}
+                category={params.category}
+                searchQuery={searchQuery}
+                sortQuery={sortQuery}
+                categoryQuery={categoryQuery}
+              />
+            </div>
+            {!articles[0]?.id && <QueryNotFound />}
             <div className={styles.articlesWrapper}>
               {articles.map((article, index) => {
                 return (
@@ -155,17 +157,18 @@ export default async function Blog({ searchParams }: PageProps) {
                 );
               })}
             </div>
-          {articles[0]?.id && (
-            <Pagination
-              page={pageNumber}
-              categoryQuery={categoryQuery}
-              sortQuery={sortQuery}
-              searchQuery={searchQuery}
-              {...metadata}
-            />
-          )}
-        </div>
-      </section>
-    </main>
+            {articles[0]?.id && (
+              <Pagination
+                page={pageNumber}
+                categoryQuery={categoryQuery}
+                sortQuery={sortQuery}
+                searchQuery={searchQuery}
+                {...metadata}
+              />
+            )}
+          </div>
+        </section>
+      </main>
+    </EntranceAnimation>
   );
 }

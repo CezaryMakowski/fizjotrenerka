@@ -46,3 +46,6 @@ public/_next-video
 # prisma migrations and generated
 prisma/migrations
 generated
+
+#pages
+app/(Pages)/grafik

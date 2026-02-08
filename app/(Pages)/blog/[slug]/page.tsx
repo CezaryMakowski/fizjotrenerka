@@ -11,6 +11,7 @@ import underLine from "@/public/Blog/single-post-underline.svg";
 import arrowUnderline from "@/public/Blog/single-post-arrow-underline.svg";
 import blobLeft from "@/public/Blog/single-post-blob-1.svg";
 import blobRight from "@/public/Blog/single-post-blob-2.svg";
+import EntranceAnimation from "@/components/EntranceAnimation";
 
 type NextPrev = {
   next: { id: string; title: string };
@@ -33,83 +34,85 @@ export default async function BlogPost({
   if (!article.id) notFound();
 
   return (
-    <main className={styles.main}>
-      <section className={styles.articleImgContainer}>
-        <Image
-          className={styles.blobLeft}
-          src={blobLeft}
-          alt="lewy-blob-zdjęcie-artykułu"
-        />
-        <Image
-          className={styles.blobRight}
-          src={blobRight}
-          alt="prawy-blob-zdjęcie-artykułu"
-        />
-        <div className={styles.articleImg}>
+    <EntranceAnimation>
+      <main className={styles.main}>
+        <section className={styles.articleImgContainer}>
           <Image
-            priority
-            placeholder="blur"
-            blurDataURL="/Blog/placeholder.svg"
-            src={article.image}
-            width={1000}
-            height={750}
-            alt="single-post-obrazek-artykułu"
+            className={styles.blobLeft}
+            src={blobLeft}
+            alt="lewy-blob-zdjęcie-artykułu"
           />
-        </div>
-      </section>
-      <section>
-        <h1 className={styles.title}>{article.title}</h1>
-        <div
-          className={styles.articleWrapper}
-          dangerouslySetInnerHTML={{ __html: article.content! }}
-        ></div>
-      </section>
-      <section
-        className={styles.nextPrevWrapper}
-        style={article.prev ? undefined : { justifyContent: "flex-end" }}
-      >
-        {article.prev && (
-          <Link href={"/blog/" + article.prev.id} style={{ width: "50%" }}>
-            <div className={styles.prev}>
-              <Image src={arrow} alt="strzałka-poprzedni-artykuł" />
-              <div>
-                <p>{article.prev.title}</p>
-                <Image
-                  className={styles.underline}
-                  src={underLine}
-                  alt="podkreślenie-poprzedni-artykuł"
-                />
-                <Image
-                  className={styles.arrowUnderline}
-                  src={arrowUnderline}
-                  alt="strzałka-podkreślenie"
-                />
+          <Image
+            className={styles.blobRight}
+            src={blobRight}
+            alt="prawy-blob-zdjęcie-artykułu"
+          />
+          <div className={styles.articleImg}>
+            <Image
+              priority
+              placeholder="blur"
+              blurDataURL="/Blog/placeholder.svg"
+              src={article.image}
+              width={1000}
+              height={750}
+              alt="single-post-obrazek-artykułu"
+            />
+          </div>
+        </section>
+        <section>
+          <h1 className={styles.title}>{article.title}</h1>
+          <div
+            className={styles.articleWrapper}
+            dangerouslySetInnerHTML={{ __html: article.content! }}
+          ></div>
+        </section>
+        <section
+          className={styles.nextPrevWrapper}
+          style={article.prev ? undefined : { justifyContent: "flex-end" }}
+        >
+          {article.prev && (
+            <Link href={"/blog/" + article.prev.id} style={{ width: "50%" }}>
+              <div className={styles.prev}>
+                <Image src={arrow} alt="strzałka-poprzedni-artykuł" />
+                <div>
+                  <p>{article.prev.title}</p>
+                  <Image
+                    className={styles.underline}
+                    src={underLine}
+                    alt="podkreślenie-poprzedni-artykuł"
+                  />
+                  <Image
+                    className={styles.arrowUnderline}
+                    src={arrowUnderline}
+                    alt="strzałka-podkreślenie"
+                  />
+                </div>
               </div>
-            </div>
-          </Link>
-        )}
-        {article.next && (
-          <Link href={"/blog/" + article.next.id} style={{ width: "50%" }}>
-            <div className={styles.next}>
-              <div>
-                <p>{article.next.title}</p>
-                <Image
-                  className={styles.underline}
-                  src={underLine}
-                  alt="podkreślenie-poprzedni-artykuł"
-                />
-                <Image
-                  className={styles.arrowUnderline}
-                  src={arrowUnderline}
-                  alt="strzałka-podkreślenie"
-                />
+            </Link>
+          )}
+          {article.next && (
+            <Link href={"/blog/" + article.next.id} style={{ width: "50%" }}>
+              <div className={styles.next}>
+                <div>
+                  <p>{article.next.title}</p>
+                  <Image
+                    className={styles.underline}
+                    src={underLine}
+                    alt="podkreślenie-poprzedni-artykuł"
+                  />
+                  <Image
+                    className={styles.arrowUnderline}
+                    src={arrowUnderline}
+                    alt="strzałka-podkreślenie"
+                  />
+                </div>
+                <Image src={arrow} alt="strzałka-poprzedni-artykuł" />
               </div>
-              <Image src={arrow} alt="strzałka-poprzedni-artykuł" />
-            </div>
-          </Link>
-        )}
-      </section>
-      <SimilarPosts categories={article.category} exclude={article.id} />
-    </main>
+            </Link>
+          )}
+        </section>
+        <SimilarPosts categories={article.category} exclude={article.id} />
+      </main>
+    </EntranceAnimation>
   );
 }

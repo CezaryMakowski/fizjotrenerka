@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function RootLayout({
+export default function EntranceAnimation({
   children,
 }: {
   children: React.ReactNode;

@@ -14,66 +14,69 @@ import mailBlob from "@/public/contact/kontakt-mail-blob.svg";
 import instaBlob from "@/public/contact/kontakt-instagram-blob.svg";
 import pati from "@/public/contact/kontakt-pati-fizjotrenerka.png";
 import curvedLineForm from "@/public/contact/formularz-curved-line.svg";
+import EntranceAnimation from "@/components/EntranceAnimation";
 
 export default function Kontakt() {
   return (
-    <main style={{ paddingBottom: "6rem", overflow: "hidden" }}>
-      <div className={styles.title}>
-        <h1>Zapraszam do Kontaktu</h1>
-        <Image src={curvedLineTitle} alt="podkreślenie-tutył" />
-      </div>
-      <div className={styles.googleWrapper}>
-        <Image
-          className={styles.googleBlob1}
-          src={googleBlob1}
-          alt="goolge-blob"
-        />
-        <Image
-          className={styles.googleBlob2}
-          src={googleBlob2}
-          alt="google-blob"
-        />
-        <div className={styles.googleMap}>
-          <Map googleKey={process.env.GOOGLE_API_KEY as string} />
+    <EntranceAnimation>
+      <main style={{ paddingBottom: "6rem", overflow: "hidden" }}>
+        <div className={styles.title}>
+          <h1>Zapraszam do Kontaktu</h1>
+          <Image src={curvedLineTitle} alt="podkreślenie-tutył" />
         </div>
-        <Image
-          className={styles.googleCurvedLine}
-          src={googleCurvedLine}
-          alt="linia-google"
-        />
-      </div>
-      <p className={styles.address}>Mariana Rapackiego 3, 71-467 Szczecin</p>
-      <div className={styles.contactWrapper}>
-        <div className={styles.contactInfo}>
-          <Image src={phoneBlob} alt="kontakt-telefon-blob" />
-          <h3>{"+(48) 794 433 994"}</h3>
+        <div className={styles.googleWrapper}>
+          <Image
+            className={styles.googleBlob1}
+            src={googleBlob1}
+            alt="goolge-blob"
+          />
+          <Image
+            className={styles.googleBlob2}
+            src={googleBlob2}
+            alt="google-blob"
+          />
+          <div className={styles.googleMap}>
+            <Map googleKey={process.env.GOOGLE_API_KEY as string} />
+          </div>
+          <Image
+            className={styles.googleCurvedLine}
+            src={googleCurvedLine}
+            alt="linia-google"
+          />
         </div>
-        <div className={styles.contactInfo}>
-          <Image src={mailBlob} alt="kontakt-mail-blob" />
-          <h3>patrycja.puszkarek1@wp.pl</h3>
+        <p className={styles.address}>Mariana Rapackiego 3, 71-467 Szczecin</p>
+        <div className={styles.contactWrapper}>
+          <div className={styles.contactInfo}>
+            <Image src={phoneBlob} alt="kontakt-telefon-blob" />
+            <h3>{"+(48) 794 433 994"}</h3>
+          </div>
+          <div className={styles.contactInfo}>
+            <Image src={mailBlob} alt="kontakt-mail-blob" />
+            <h3>patrycja.puszkarek1@wp.pl</h3>
+          </div>
+          <div className={styles.contactInfo}>
+            <Image src={instaBlob} alt="kontakt-instagram-blob" />
+            <h3>@trenerka.narurce</h3>
+          </div>
         </div>
-        <div className={styles.contactInfo}>
-          <Image src={instaBlob} alt="kontakt-instagram-blob" />
-          <h3>@trenerka.narurce</h3>
+        <div id="contactForm"></div>
+        <div className={styles.formContainer}>
+          <Image
+            className={styles.curvedLineForm}
+            src={curvedLineForm}
+            alt="kontakt-curved-line-formularz"
+          />
+          <Image
+            className={styles.pati}
+            src={pati}
+            alt="kontakt-pati-fizjotrenerka"
+          />
+          <div>
+            <h2>Kontakt</h2>
+            <ContactForm />
+          </div>
         </div>
-      </div>
-      <div id="contactForm"></div>
-      <div className={styles.formContainer}>
-        <Image
-          className={styles.curvedLineForm}
-          src={curvedLineForm}
-          alt="kontakt-curved-line-formularz"
-        />
-        <Image
-          className={styles.pati}
-          src={pati}
-          alt="kontakt-pati-fizjotrenerka"
-        />
-        <div>
-          <h2>Kontakt</h2>
-          <ContactForm />
-        </div>
-      </div>
-    </main>
+      </main>
+    </EntranceAnimation>
   );
 }
