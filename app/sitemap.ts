@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
+import { prisma } from "@/lib/prisma";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://fizjotrenerka.eu";
 
-  const routes = [
+  const staticRoutes = [
     "",
     "/o-mnie",
     "/sklep",
@@ -17,5 +18,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : 0.8,
   }));
 
-  return [...routes];
+  // Fetch all articles for dynamic routes
+  const articles = await prisma.article.findMany({
+    select: {
+      id: true,
+      createdAt: true,
+    },
+  });
+
+  const articleRoutes = articles.map((article) => ({
+    url: `${baseUrl}/blog/${article.id}`,
+    lastModified: new Date(article.createdAt).toISOString().split("T")[0],
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...articleRoutes];
 }
