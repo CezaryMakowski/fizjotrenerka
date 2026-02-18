@@ -9,6 +9,7 @@ Projekt "Sklep Pati" — blog i platforma E-lerningowa stworzona w Next.js + Pri
 - Prisma (Postgres/SQLite - konfigurowalne)
 - CSS Modules / global CSS
 - NextAuth
+- Framer Motion
 
 ## Funkcje
 
@@ -27,3 +28,10 @@ Projekt "Sklep Pati" — blog i platforma E-lerningowa stworzona w Next.js + Pri
 - `lib/` — helpery, konfiguracje (np. `prisma.ts`, `nextAuth.ts`)
 - `prisma/` — schema i migracje Prisma
 - `public/` — zasoby statyczne (obrazy, wideo)
+
+## Kontakt
+
+Jeśli chcesz nawiązać współpracę lub masz pytania, skontaktuj się ze mną:
+
+- Imię i nazwisko: Cezary Makowski
+- E-mail: cezary.makowski96@gmail.com
